@@ -5,22 +5,58 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'Riffiral Regular';
+  src: url('../../public/font/Rhiffiral-Regular.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.font-rhiffiral {
+  font-family: 'Riffiral Regular';
+}
+
+@font-face {
+  font-family: 'Roboto Light';
+  src: url('../../public/font/Roboto-Light.ttf');
+}
+
+.font-roboto {
+  font-family: 'Roboto Light';
+}
+
+/* Custom animations for floating elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* GSAP animation classes */
+.gsap-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gsap-fade-in.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth transitions for interactive elements */
+.interactive-element {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus states for accessibility */
+.interactive-element:focus {
+  outline: 2px solid #8F7B29;
+  outline-offset: 2px;
+}
+
+/* Particle animation optimization */
+.particle {
+  will-change: transform, opacity;
+  pointer-events: none;
 }
