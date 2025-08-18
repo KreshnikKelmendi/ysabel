@@ -81,7 +81,7 @@ const LaunchingSoon = () => {
             alt="Ysabel Logo"
             width={320}
             height={80}
-            className="w-52 h-52 lg:w-72 lg:h-72"
+            className="w-56 h-56 lg:w-72 lg:h-72"
             priority
           />
         </div>
