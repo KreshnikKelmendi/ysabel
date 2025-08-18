@@ -67,7 +67,7 @@ const LaunchingSoon = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A372A] flex flex-col justify-between px-4 py-8">
+    <div className="min-h-screen overflow-hidden bg-[#1A372A] flex flex-col justify-between px-4 py-8">
       <div className="flex-1 flex flex-col justify-center">
         {/* Logo with hover effect */}
         <div 
@@ -81,7 +81,7 @@ const LaunchingSoon = () => {
             alt="Ysabel Logo"
             width={320}
             height={80}
-            className="drop-shadow-2xl"
+            className="w-52 h-52 lg:w-72 lg:h-72"
             priority
           />
         </div>
@@ -91,7 +91,7 @@ const LaunchingSoon = () => {
         {/* Main Content with Animated Text */}
         <h1 
           ref={titleRef}
-          className="text-4xl md:text-[40px] uppercase font-rhiffiral text-[#BDBDB9] mb-2 tracking-wider drop-shadow-lg text-center"
+          className="text-3xl md:text-[40px]  font-rhiffiral text-[#BDBDB9] mb-2 tracking-wider drop-shadow-lg text-center"
         >
           <AnimatedText 
             text="Launching Soon" 
@@ -103,7 +103,7 @@ const LaunchingSoon = () => {
         {/* Subtitle with enhanced styling */}
         <p 
           ref={subtitleRef}
-          className="text-sm lg:text-sm text-[#8F7B29] font-roboto tracking-wide leading-relaxed drop-shadow-md text-center"
+          className="text-xs lg:text-sm text-[#8F7B29] font-roboto tracking-wide leading-relaxed drop-shadow-md text-center"
         >
           <AnimatedText 
             text="The taste of many worlds, gathered in one society" 
@@ -115,7 +115,7 @@ const LaunchingSoon = () => {
             text="Opening in Prishtina" 
             delay={2.2}
             stagger={0.04}
-            className="text-[#BDBDB9] font-medium"
+            className="text-[#8F7B29]  font-medium"
           />
         </p>
         
