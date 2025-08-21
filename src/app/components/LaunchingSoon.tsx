@@ -49,7 +49,7 @@ const LaunchingSoon = () => {
     // Show modal after 3000ms
     const modalTimer = setTimeout(() => {
       setShowModal(true);
-    }, 3000);
+    }, 1000);
 
     return () => {
       // Cleanup animations and timer
@@ -164,10 +164,10 @@ const LaunchingSoon = () => {
 
       {/* Modal Overlay */}
       {showModal && (
-        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 mt-24 flex items-center justify-center z-50">
           <div 
             ref={modalRef}
-            className="bg-black p-8 mx-10 max-w-md lg:max-w-xl w-full relative"
+            className="bg-black/50 p-8 mx-10 max-w-md lg:max-w-xl w-full relative"
           >
             {/* Close Button */}
             <button
