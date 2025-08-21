@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import AnimatedText from './AnimatedText';
 
@@ -9,6 +9,8 @@ const LaunchingSoon = () => {
   const logoRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // Initial animation setup
@@ -44,11 +46,37 @@ const LaunchingSoon = () => {
       repeat: -1
     });
 
+    // Show modal after 3000ms
+    const modalTimer = setTimeout(() => {
+      setShowModal(true);
+    }, 3000);
+
     return () => {
-      // Cleanup animations
+      // Cleanup animations and timer
       gsap.killTweensOf([logoRef.current, titleRef.current, subtitleRef.current]);
+      clearTimeout(modalTimer);
     };
   }, []);
+
+  useEffect(() => {
+    if (showModal && modalRef.current) {
+      // Modal entrance animation
+      gsap.fromTo(modalRef.current, 
+        {
+          opacity: 0,
+          scale: 0.8,
+          y: 50
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)"
+        }
+      );
+    }
+  }, [showModal]);
 
   const handleLogoHover = () => {
     gsap.to(logoRef.current, {
@@ -66,8 +94,17 @@ const LaunchingSoon = () => {
     });
   };
 
+  const handleApplyNow = () => {
+    // Open Etsy link in new tab
+    window.open('https://docs.google.com/forms/u/0/d/e/1FAIpQLSe53IDY9m1fSS6ZOJVmtopRkHB7sWiMdxAlfnNie9pGXA0GQw/viewform?pli=1', '_blank');
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
-    <div className="min-h-screen overflow-hidden bg-[#1A372A] flex flex-col justify-between px-4 py-8">
+    <div className="min-h-screen overflow-hidden bg-[#1A372A] flex flex-col justify-between px-4 py-8 relative">
       <div className="flex-1 flex flex-col justify-center">
         {/* Logo with hover effect */}
         <div 
@@ -95,7 +132,7 @@ const LaunchingSoon = () => {
         >
           <AnimatedText 
             text="Launching Soon" 
-            delay={1.2}
+            delay={0.4}
             stagger={0.05}
           />
         </h1>
@@ -107,13 +144,13 @@ const LaunchingSoon = () => {
         >
           <AnimatedText 
             text="The taste of many worlds, gathered in one society" 
-            delay={1.8}
+            delay={1.2}
             stagger={0.03}
           />
           <br/> 
           <AnimatedText 
             text="Opening in Prishtina" 
-            delay={2.2}
+            delay={1.8}
             stagger={0.04}
             className="text-[#8F7B29]  font-medium"
           />
@@ -124,6 +161,39 @@ const LaunchingSoon = () => {
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#8F7B29] to-transparent opacity-60"></div>
         </div>
       </div>
+
+      {/* Modal Overlay */}
+      {showModal && (
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
+          <div 
+            ref={modalRef}
+            className="bg-black p-8 mx-10 max-w-md lg:max-w-xl w-full relative"
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-1 right-3 cursor-pointer text-[#BDBDB9] hover:text-white transition-colors duration-200 text-2xl font-bold"
+            >
+              ×
+            </button>
+            
+            <div className="text-center">
+              <h2 className="text-2xl font-rhiffiral text-[#8F7B29] mb-4 tracking-wider">
+                Join the Ysabel Team
+              </h2>
+              <p className="text-[#BDBDB9] font-roboto mb-6 leading-relaxed">
+              Now Hiring! Explore our open positions.
+              </p>
+              <button
+                onClick={handleApplyNow}
+                className="bg-gradient-to-r from-[#8F7B29] font-bold font-roboto to-[#D2BF53] text-[#1A372A] px-8 py-2 hover:from-[#BDBDB9] hover:to-[#8F7B29] cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
