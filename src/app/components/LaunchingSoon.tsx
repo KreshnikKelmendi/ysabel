@@ -167,12 +167,12 @@ const LaunchingSoon = () => {
         <div className="fixed inset-0 mt-24 flex items-center justify-center z-50">
           <div 
             ref={modalRef}
-            className="bg-black/50 p-8 mx-10 max-w-md lg:max-w-xl w-full relative"
+            className="bg-black/50 p-4 lg:p-8 mx-10 max-w-md lg:max-w-xl w-full relative"
           >
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-1 right-3 cursor-pointer text-[#BDBDB9] hover:text-white transition-colors duration-200 text-2xl font-bold"
+              className="absolute top-1 right-2 cursor-pointer text-[#BDBDB9] hover:text-white transition-colors duration-200 text-2xl font-bold"
             >
               ×
             </button>
@@ -181,12 +181,12 @@ const LaunchingSoon = () => {
               <h2 className="text-2xl font-rhiffiral text-[#8F7B29] mb-4 tracking-wider">
                 Join the Ysabel Team
               </h2>
-              <p className="text-[#BDBDB9] font-roboto mb-6 leading-relaxed">
-              Now Hiring! Explore our open positions.
+              <p className="text-[#BDBDB9] font-roboto mb-4 leading-relaxed">
+                Now Hiring! Explore our open positions.
               </p>
               <button
                 onClick={handleApplyNow}
-                className="bg-gradient-to-r from-[#8F7B29] font-bold font-roboto to-[#D2BF53] text-[#1A372A] px-8 py-2 hover:from-[#BDBDB9] hover:to-[#8F7B29] cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                className="bg-gradient-to-r w-full from-[#8F7B29] font-bold font-roboto to-[#D2BF53] text-[#1A372A] uppercase px-8 py-2 hover:from-[#BDBDB9] hover:to-[#8F7B29] cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 Apply Now
               </button>
