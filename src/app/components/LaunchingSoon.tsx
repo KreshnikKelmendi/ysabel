@@ -104,7 +104,7 @@ const LaunchingSoon = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#1A372A] flex flex-col justify-between px-4 py-8 relative">
+    <div className="min-h-screen overflow-hidden bg-[#1A372A] flex flex-col justify-between px-4 py-0 relative">
       <div className="flex-1 flex flex-col justify-center">
         {/* Logo with hover effect */}
         <div 
@@ -118,7 +118,7 @@ const LaunchingSoon = () => {
             alt="Ysabel Logo"
             width={320}
             height={80}
-            className="w-56 h-56 lg:w-72 lg:h-72"
+            className="w-56 h-56 lg:w-72 lg:h-72 mt-[-5px] lg:mt-0"
             priority
           />
         </div>
@@ -152,7 +152,7 @@ const LaunchingSoon = () => {
             text="Opening in Prishtina" 
             delay={1.8}
             stagger={0.04}
-            className="text-[#8F7B29]  font-medium"
+            className="text-[#8F7B29] font-medium"
           />
         </p>
         
