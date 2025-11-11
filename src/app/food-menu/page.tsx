@@ -68,7 +68,7 @@ const FoodMenuPage = () => {
                 <Header />
                 <div className="flex-1 flex flex-col lg:items-center lg:justify-center pt-32 lg:pt-36 pb-16 px-4 md:px-8">
                     <motion.h1
-                        className="text-3xl md:text-6xl font-rhiffiral text-center pt-12 mb-4 tracking-wide"
+                        className="text-3xl md:text-6xl font-rhiffiral text-center pt-36 mb-4 tracking-wide"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

@@ -32,7 +32,7 @@ const GardenMenuPage = () => {
             <div className="absolute inset-0 bg-[#1D3428]/70" />
             <div className="relative z-10 flex min-h-screen flex-col">
                 <Header />
-                <main className="flex flex-1 items-center justify-center px-6 py-20 md:px-12 lg:px-24">
+                <main className="flex flex-1 items-center justify-center pt-52 px-6 py-20 md:px-12 lg:px-24">
                     <div className="relative w-full max-w-4xl bg-white/5 p-8 text-center shadow-[0_35px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl md:p-14">
                         <div className="relative flex flex-col items-center gap-6 md:gap-8">
                             <h1 className="text-4xl font-rhiffiral md:text-6xl">Garden Menu</h1>
