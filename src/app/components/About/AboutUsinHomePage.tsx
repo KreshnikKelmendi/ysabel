@@ -46,12 +46,12 @@ const AboutUsinHomePage = () => {
                         style={{ willChange: "transform, opacity" }}
                     >
                         <Image
-                            src="/assets/ysabel-1.png"
+                            src="/assets/6I9A9731.png"
                             alt="Main"
                             fill
                             priority
                             sizes="(min-width:1280px) 20rem, (min-width:1024px) 18rem, (min-width:768px) 14rem, (min-width:640px) 11rem, 8rem"
-                            className="object-contain"
+                            className="object-cover"
                         />
                     </motion.div>
                     <motion.p
@@ -60,7 +60,7 @@ const AboutUsinHomePage = () => {
                         custom={2}
                         style={{ willChange: "transform, opacity" }}
                     >
-                        In the heart of Prishtina, Ysabel Society blends modern gastronomy with Mediterranean soul.
+                        On the 22nd floor, the Italian restaurant tempts you with rich, soulful dishes and the warmth of true cucina vibes. One level higher, the Asian restaurant turns up the rhythm and bold flavors, open flame, and a fusion menu that hits every note. And at the very top, on the 24th floor, the Botanic Garden Rooftop comes alive, lush greenery, crafted cocktails, great vibe and the feeling that the city below is all yours.
                     </motion.p>
                 </motion.div>
                 <motion.div
@@ -77,7 +77,7 @@ const AboutUsinHomePage = () => {
                             custom={1}
                             style={{ willChange: "transform, opacity" }}
                         >
-                            “Temple of taste and atmosphere.”
+                        
                         </motion.p>
                         <motion.div
                             className="relative h-[243px] lg:mt-20 overflow-hidden"
@@ -86,7 +86,7 @@ const AboutUsinHomePage = () => {
                             style={{ willChange: "transform, opacity" }}
                         >
                             <Image
-                                src="/assets/ysabel-3.png"
+                                src="/assets/6I9A0496.png"
                                 alt="Dining room interior"
                                 fill
                                 sizes="(min-width:1024px) 243px, 50vw"
@@ -103,7 +103,7 @@ const AboutUsinHomePage = () => {
                         style={{ willChange: "transform, opacity" }}
                     >
                         <Image
-                            src="/assets/ysabel-2.png"
+                            src="/assets/good IMG_7834.png"
                             alt="Chef presenting dish"
                             width={1200}
                             height={800}

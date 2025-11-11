@@ -18,8 +18,8 @@ const Main = () => {
       </div>
       <div className="relative z-10 flex min-h-screen items-center justify-center px-4 text-white text-center">
         <div className="flex flex-col items-center justify-center gap-6 pt-32 md:pt-40">
-          <p className="text-[4vh] lg:text-[6vh] font-rhiffiral text-center leading-tight uppercase lg:mt-[-100px]">
-          Ysabel Society is more than a restaurant,<br/> it is a temple of taste and atmosphere.
+          <p className="text-[4vh] lg:text-[6vh] font-rhiffiral text-center leading-tight tracking-[1px] uppercase mt-[-50px] lg:mt-[-100px]">
+           it is a temple of taste <br/>and atmosphere.
           </p>
          
         </div>

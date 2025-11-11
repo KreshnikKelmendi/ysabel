@@ -248,12 +248,12 @@ const Header = () => {
         </div>
       </div>
       {/* Center: Logo absolutely centered using relative wrapper */}
-      <div className="absolute pt-0 pl-3 lg:pl-0 lg:pt-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+      <div className="absolute pt-52 pl-3 lg:pl-0 lg:pt-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
         <Link href="/" onClick={handleLogoClick} className="flex items-center justify-center">
           <Image
             src="/assets/ysabel-logo-white.png"
             alt="Ysabel Logo"
-            width={130}
+            width={180}
             height={60}
             className="object-contain select-none"
             priority={true}
