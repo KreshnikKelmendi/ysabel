@@ -85,21 +85,31 @@ const AboutUsinHomePage = () => {
                             custom={2}
                             style={{ willChange: "transform, opacity" }}
                         >
-                            <img
+                            <Image
                                 src="/assets/ysabel-3.png"
-                                alt="Main"
-                                className="object-contain h-full w-full"
+                                alt="Dining room interior"
+                                fill
+                                sizes="(min-width:1024px) 243px, 50vw"
+                                className="object-contain"
                             />
                         </motion.div>
                     </div>
-                    <motion.div className="w-full relative overflow-hidden"
+                    <motion.div
+                        className="relative w-full overflow-hidden py-10"
                         variants={bottomVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.25 }}
                         style={{ willChange: "transform, opacity" }}
                     >
-                        <img src="/assets/ysabel-2.png" alt="Main" className="object-cover py-10 w-full h-full" />
+                        <Image
+                            src="/assets/ysabel-2.png"
+                            alt="Chef presenting dish"
+                            width={1200}
+                            height={800}
+                            className="w-full h-auto object-cover"
+                            sizes="100vw"
+                        />
                     </motion.div>
                 </motion.div>
             </div>

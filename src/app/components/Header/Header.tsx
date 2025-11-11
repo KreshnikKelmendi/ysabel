@@ -33,7 +33,6 @@ const FacebookIcon = () => (
   </svg>
 );
 
-const ENTER_DURATION_MS = 2000; // match CSS radial reveal (2s)
 const EXIT_DURATION_MS = 1600;  // match CSS close wipe (1.6s)
 
 const Header = () => {
