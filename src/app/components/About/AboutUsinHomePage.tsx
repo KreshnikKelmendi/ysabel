@@ -1,29 +1,31 @@
 "use client";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const AboutUsinHomePage = () => {
-    const leftVariants = {
+    const easeBezier = [0.16, 1, 0.3, 1] as const;
+
+    const leftVariants: Variants = {
         hidden: { x: -40, opacity: 0 },
         visible: (i = 1) => ({
             x: 0,
             opacity: 1,
-            transition: { delay: 0.12 * i, duration: 0.9, ease: [0.16, 1, 0.3, 1] }
+            transition: { delay: 0.12 * i, duration: 0.9, ease: easeBezier }
         })
     };
-    const rightVariants = {
+    const rightVariants: Variants = {
         hidden: { x: 40, opacity: 0 },
         visible: (i = 1) => ({
             x: 0,
             opacity: 1,
-            transition: { delay: 0.18 + 0.12 * i, duration: 1.0, ease: [0.16, 1, 0.3, 1] }
+            transition: { delay: 0.18 + 0.12 * i, duration: 1.0, ease: easeBezier }
         })
     };
-    const bottomVariants = {
+    const bottomVariants: Variants = {
         hidden: { y: 50, opacity: 0 },
         visible: {
             y: 0, opacity: 1,
-            transition: { delay: 0.5, duration: 1.05, ease: [0.16, 1, 0.3, 1] }
+            transition: { delay: 0.5, duration: 1.05, ease: easeBezier }
         }
     };
 

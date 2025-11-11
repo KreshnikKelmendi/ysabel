@@ -40,6 +40,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [bookMenuOpen, setBookMenuOpen] = useState(false);
+  const [overlayBookOpen, setOverlayBookOpen] = useState(false);
   const bookMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -80,6 +81,7 @@ const Header = () => {
 
   const handleBookClose = useCallback(() => {
     setBookMenuOpen(false);
+    setOverlayBookOpen(false);
   }, []);
 
   const handleToggle = useCallback(() => {
@@ -99,6 +101,7 @@ const Header = () => {
   const handleClose = useCallback(() => {
     if (!open) return;
     setIsClosing(true);
+    setOverlayBookOpen(false);
     setTimeout(() => {
       setOpen(false);
       setIsClosing(false);
@@ -108,6 +111,7 @@ const Header = () => {
   useEffect(() => {
     if (!open) return;
     setBookMenuOpen(false);
+    setOverlayBookOpen(false);
   }, [open]);
 
   const handleLogoClick = useCallback(() => {
@@ -159,11 +163,11 @@ const Header = () => {
             </svg>
           </button>
           <div
-            className={`absolute left-0 top-full mt-3 w-[min(18rem,calc(100vw-3rem))] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#15261E]/95 via-[#1D3428]/90 to-[#0B1611]/95 p-[1px] backdrop-blur-md transition-all duration-300 ${
+            className={`absolute left-0 top-full mt-3 w-[min(18rem,calc(100vw-3rem))] overflow-hidden border border-white/10 bg-gradient-to-br from-[#15261E]/95 via-[#1D3428]/90 to-[#0B1611]/95 p-[1px] backdrop-blur-md transition-all duration-300 ${
               bookMenuOpen ? "pointer-events-auto opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-2"
             }`}
           >
-            <div className="relative rounded-[1.75rem] bg-[#0F1A15]/90 p-4 shadow-[0_20px_55px_rgba(0,0,0,0.45)]">
+            <div className="relative  bg-[#0F1A15]/90 p-4 ">
               {bookLinks.map((link) => (
                 <a
                   key={link.title}
@@ -171,7 +175,7 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleBookClose}
-                  className="group flex flex-col gap-1 rounded-xl border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/15"
+                  className="group flex flex-col gap-1 border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/15"
                 >
                   <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F0D0A2]">
                     {link.title}
@@ -283,13 +287,77 @@ const Header = () => {
           </button>
           <nav className="flex flex-col gap-10 items-center mt-8">
             {menuItems.map((item, i) => {
+              if (item.label === "RESERVATION") {
+                return (
+                  <div
+                    key={item.label}
+                    className="relative flex flex-col items-center"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOverlayBookOpen((prev) => !prev)}
+                      aria-haspopup="true"
+                      aria-expanded={overlayBookOpen}
+                      className="menu-link-special text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all flex items-center gap-4"
+                    >
+                      <span className="reveal-wrap">
+                        <span
+                          className="menu-link-lineup"
+                          style={{ animationDelay: `${0.5 + i * 0.25}s` }}
+                        >
+                          {item.label}
+                        </span>
+                      </span>
+                      <svg
+                        width="18"
+                        height="12"
+                        viewBox="0 0 18 12"
+                        aria-hidden="true"
+                        className={`transition-transform duration-500 ${overlayBookOpen ? "rotate-180" : ""}`}
+                      >
+                        <path
+                          d="M2 2L9 9L16 2"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      className={`mt-5 origin-top transform transition-all duration-300 ${
+                        overlayBookOpen
+                          ? "pointer-events-auto scale-100 opacity-100"
+                          : "pointer-events-none scale-95 opacity-0"
+                      }`}
+                    >
+                      <div className="flex flex-col gap-3 rounded-3xl border border-white/10 bg-white/[0.05] px-6 py-6 text-center shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
+                        <span className="uppercase tracking-[0.4em] text-xs text-[#F5F1E9]/80 font-roboto">
+                          Book Now
+                        </span>
+                        {bookLinks.map((link) => (
+                          <a
+                            key={link.title}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleClose}
+                            className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-transparent bg-white/[0.04] px-6 py-3 text-sm uppercase tracking-[0.3em] text-white transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:text-[#F4D8AF]"
+                          >
+                            {link.title}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <a
                   href={item.href}
                   key={item.label}
-                  className={
-                    `menu-link-special text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all`
-                  }
+                  className="menu-link-special text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all"
                   onClick={handleClose}
                 >
                   <span className="reveal-wrap">
