@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../../components/Header/Header";
-import backgroundImage from "../../../../public/assets/ysabel-2.jpg";
+import backgroundImage from "../../../../public/assets/ysabel-2.png";
 
 const menuCategories = [
     {

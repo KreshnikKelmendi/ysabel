@@ -7,7 +7,7 @@ import Header from "../components/Header/Header";
 import asianMenuImage from "../../../public/assets/asian.png";
 import italianMenuImage from "../../../public/assets/italian.png";
 import gardenMenuImage from "../../../public/assets/garden.png";
-import backgroundImage from "../../../public/assets/ysabel-1.jpg";
+import backgroundImage from "../../../public/assets/ysabel-1.png";
 
 type MenuButton = {
     label: string;

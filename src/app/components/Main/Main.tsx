@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className="relative w-full min-h-screen lg:h-screen overflow-hidden bg-[#1D3428]">
       <Image
-        src="/assets/ysabel-1.JPG"
+        src="/assets/ysabel-1.png"
         alt="Main background"
         fill
         priority

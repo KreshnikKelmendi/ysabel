@@ -46,7 +46,7 @@ const AboutUsinHomePage = () => {
                         style={{ willChange: "transform, opacity" }}
                     >
                         <Image
-                            src="/assets/ysabel-1.JPG"
+                            src="/assets/ysabel-1.png"
                             alt="Main"
                             fill
                             priority
@@ -86,7 +86,7 @@ const AboutUsinHomePage = () => {
                             style={{ willChange: "transform, opacity" }}
                         >
                             <img
-                                src="/assets/ysabel-3.JPG"
+                                src="/assets/ysabel-3.png"
                                 alt="Main"
                                 className="object-contain h-full w-full"
                             />
@@ -99,7 +99,7 @@ const AboutUsinHomePage = () => {
                         viewport={{ once: true, amount: 0.25 }}
                         style={{ willChange: "transform, opacity" }}
                     >
-                        <img src="/assets/ysabel-2.JPG" alt="Main" className="object-cover py-10 w-full h-full" />
+                        <img src="/assets/ysabel-2.png" alt="Main" className="object-cover py-10 w-full h-full" />
                     </motion.div>
                 </motion.div>
             </div>
