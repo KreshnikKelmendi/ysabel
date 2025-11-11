@@ -1,10 +1,11 @@
-import Image from "next/image";
-import LaunchingSoon from "./components/LaunchingSoon";
+import HomeView from "./components/views/HomeView";
+import AboutUsinHomePage from "./components/About/AboutUsinHomePage";
 
 export default function Home() {
   return (
-   <>
-    <LaunchingSoon />
-   </>
+    <>
+      <HomeView />
+      <AboutUsinHomePage />
+    </>
   );
 }
