@@ -200,7 +200,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
               href={getBookLink() || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-start gap-1 px-2 py-1 uppercase tracking-[0.3em] text-xs font-roboto text-white transition-all duration-500 hover:text-[#BA8424] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BA8424]"
+              className="group flex flex-col items-start gap-1 px-2 py-1 uppercase tracking-[0.3em] text-xs font-roboto text-[#ffffff] transition-all duration-500 hover:text-[#BA8424] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BA8424]"
             >
               <span>{`Book for ${menuType === "asian" ? "Asian" : "Italian"}`}</span>
               {getSchedule() && (
