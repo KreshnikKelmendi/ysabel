@@ -46,16 +46,16 @@ const AboutUsinHomePage = () => {
                         style={{ willChange: "transform, opacity" }}
                     >
                         <Image
-                            src="/assets/6I9A9731.png"
+                            src="/assets/asian good 6I9A0405 (1).png"
                             alt="Main"
                             fill
                             priority
                             sizes="(min-width:1280px) 20rem, (min-width:1024px) 18rem, (min-width:768px) 14rem, (min-width:640px) 11rem, 8rem"
-                            className="object-cover"
+                            className="object-contain"
                         />
                     </motion.div>
                     <motion.p
-                        className="text-[#BDBDB9] font-roboto text-[20px] text-left lg:pt-6"
+                        className="text-[#BDBDB9] font-roboto text-base text-left lg:pt-6"
                         variants={leftVariants}
                         custom={2}
                         style={{ willChange: "transform, opacity" }}
@@ -72,12 +72,12 @@ const AboutUsinHomePage = () => {
                 >
                     <div className="flex flex-col lg:flex-row lg:justify-center">
                         <motion.p
-                            className="text-5xl lg:text-[60px] z-30 relative font-rhiffiral lg:pt-32 text-[#BDBDB9] text-center leading-tight lg:w-[633px]"
+                            className="text-5xl lg:text-[65px] z-30 relative font-rhiffiral lg:pt-32 text-[#BDBDB9] text-center leading-tight lg:w-[633px]"
                             variants={rightVariants}
                             custom={1}
                             style={{ willChange: "transform, opacity" }}
                         >
-                        
+                            “A world beyond taste and time.”
                         </motion.p>
                         <motion.div
                             className="relative h-[243px] lg:mt-20 overflow-hidden"
@@ -86,7 +86,7 @@ const AboutUsinHomePage = () => {
                             style={{ willChange: "transform, opacity" }}
                         >
                             <Image
-                                src="/assets/6I9A0496.png"
+                                src="/assets/ysabel-3.png"
                                 alt="Dining room interior"
                                 fill
                                 sizes="(min-width:1024px) 243px, 50vw"

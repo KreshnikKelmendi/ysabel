@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useState, useCallback, useEffect, useRef } from "react";
+import { BsChevronDown } from "react-icons/bs";
 
 const menuItems = [
   { label: "MENU", href: "/food-menu", type: "link" },
@@ -12,10 +13,20 @@ const bookLinks = [
   {
     href: "https://www.sevenrooms.com/explore/asian/reservations/create/search/",
     title: "Book for Asian",
+    schedule: "Mon - Sun: 4:00 p.m. - 1:00 a.m.",
+    external: true,
   },
   {
     href: "https://www.sevenrooms.com/explore/italian/reservations/create/search/",
     title: "Book for Italian",
+    schedule: "Mon - Sun: 11:00 a.m. - 12:00 a.m.",
+    external: true,
+  },
+  {
+    href: "/food-menu/garden",
+    title: "Garden",
+    schedule: "Mon - Sun: 7:00 a.m. - 1:00 a.m.",
+    external: false,
   },
 ];
 
@@ -35,12 +46,45 @@ const FacebookIcon = () => (
 
 const EXIT_DURATION_MS = 1600;  // match CSS close wipe (1.6s)
 
-const Header = () => {
+const BOOK_MENU_TRANSITION_MS = 300;
+
+interface HeaderProps {
+  menuType?: "asian" | "italian" | "garden" | null;
+}
+
+const Header = ({ menuType = null }: HeaderProps) => {
   const [open, setOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [bookMenuOpen, setBookMenuOpen] = useState(false);
   const [overlayBookOpen, setOverlayBookOpen] = useState(false);
+  const [bookMenuPortalVisible, setBookMenuPortalVisible] = useState(false);
   const bookMenuRef = useRef<HTMLDivElement | null>(null);
+
+  const asianSchedule = "Mon - Sun: 4:00 p.m. - 1:00 a.m.";
+  const italianSchedule = "Mon - Sun: 11:00 a.m. - 12:00 a.m.";
+  const gardenSchedule = "Mon - Sun: 7:00 a.m. - 1:00 a.m.";
+  
+  const getBookLink = () => {
+    if (menuType === "asian") {
+      return "https://www.sevenrooms.com/explore/asian/reservations/create/search/";
+    } else if (menuType === "italian") {
+      return "https://www.sevenrooms.com/explore/italian/reservations/create/search/";
+    } else if (menuType === "garden") {
+      return "https://www.sevenrooms.com/explore/garden/reservations/create/search/";
+    }
+    return null;
+  };
+
+  const getSchedule = () => {
+    if (menuType === "asian") {
+      return asianSchedule;
+    } else if (menuType === "italian") {
+      return italianSchedule;
+    } else if (menuType === "garden") {
+      return gardenSchedule;
+    }
+    return null;
+  };
 
   useEffect(() => {
     if (!bookMenuOpen) return;
@@ -62,6 +106,19 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
+  }, [bookMenuOpen]);
+
+  useEffect(() => {
+    if (bookMenuOpen) {
+      setBookMenuPortalVisible(true);
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      setBookMenuPortalVisible(false);
+    }, BOOK_MENU_TRANSITION_MS);
+
+    return () => window.clearTimeout(timeout);
   }, [bookMenuOpen]);
 
   useEffect(() => {
@@ -125,130 +182,191 @@ const Header = () => {
     <header className="absolute top-0 left-0 w-full z-30 px-6 md:px-10 py-16 bg-transparent flex items-center justify-between" style={{ height: '72px' }}>
       {/* Left: Book Now */}
       <div className="relative flex items-center" ref={bookMenuRef}>
-        <div
-          className="hidden md:flex items-center"
-        >
-          <button
-            type="button"
-            onClick={handleBookToggle}
-            onBlur={(event) => {
-              if (
-                bookMenuRef.current &&
-                !bookMenuRef.current.contains(event.relatedTarget as Node)
-              ) {
-                handleBookClose();
-              }
-            }}
-            aria-haspopup="true"
-            aria-expanded={bookMenuOpen}
-            className="group inline-flex items-center gap-3 border border-white/40 bg-white/5 px-6 py-3 uppercase tracking-[0.3em] text-xs font-roboto text-white transition-all duration-500 hover:border-[#BA8424] hover:bg-[#BA8424]/90 hover:shadow-[0_18px_35px_rgba(186,132,36,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BA8424]"
-          >
-            Book Now
-            <svg
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              aria-hidden="true"
-              className={`transition-transform duration-500 ${bookMenuOpen ? "translate-y-0 rotate-180" : "translate-y-[1px]"}`}
-            >
-              <path
-                d="M1 1.5L6 6.5L11 1.5"
-                stroke="currentColor"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-white/80"
-              />
-            </svg>
-          </button>
-          <div
-            className={`absolute left-0 top-full mt-3 w-[min(18rem,calc(100vw-3rem))] overflow-hidden border border-white/10 bg-gradient-to-br from-[#15261E]/95 via-[#1D3428]/90 to-[#0B1611]/95 p-[1px] backdrop-blur-md transition-all duration-300 ${
-              bookMenuOpen ? "pointer-events-auto opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-2"
-            }`}
-          >
-            <div className="relative  bg-[#0F1A15]/90 p-4 ">
-              {bookLinks.map((link) => (
-                <a
-                  key={link.title}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleBookClose}
-                  className="group flex flex-col gap-1 border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/15"
-                >
-                  <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F0D0A2]">
-                    {link.title}
-                  </span>
-                </a>
-              ))}
+        {menuType ? (
+          // Show specific Book button with schedule for menu pages
+          menuType === "garden" ? (
+            // Garden: No link, just text
+            <div className="flex flex-col items-start gap-1 px-2 py-1 uppercase tracking-[0.3em] text-xs font-roboto text-white">
+              <span>Garden</span>
+              {getSchedule() && (
+                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                  {getSchedule()}
+                </span>
+              )}
             </div>
-          </div>
-        </div>
-        <div className="flex md:hidden items-center">
-          <button
-            type="button"
-            onClick={handleBookToggle}
-            aria-haspopup="true"
-            aria-expanded={bookMenuOpen}
-            className="flex items-center gap-1 border border-white px-3 py-2 text-[0.79rem] tracking-[0.1em] font-rhiffiral font-bold uppercase text-white transition-all duration-300 hover:bg-[#F5F1E9] active:scale-[0.98]"
-          >
-            Book Now
-            <svg
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              aria-hidden="true"
-              className={`transition-transform duration-500 ${bookMenuOpen ? "translate-y-0 rotate-180" : "translate-y-[1px]"}`}
+          ) : (
+            // Asian/Italian: With link
+            <a
+              href={getBookLink() || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-start gap-1 px-2 py-1 uppercase tracking-[0.3em] text-xs font-roboto text-white transition-all duration-500 hover:text-[#BA8424] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BA8424]"
             >
-              <path
-                d="M1 1.5L6 6.5L11 1.5"
-                stroke="currentColor"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-white"
-              />
-            </svg>
-          </button>
-          {bookMenuOpen && (
-            <>
+              <span>{`Book for ${menuType === "asian" ? "Asian" : "Italian"}`}</span>
+              {getSchedule() && (
+                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                  {getSchedule()}
+                </span>
+              )}
+            </a>
+          )
+        ) : (
+          // Show dropdown Book Now for other pages
+          <>
+            <div className="hidden md:flex items-center">
               <button
                 type="button"
-                aria-hidden="true"
-                className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[1px] transition-opacity duration-300"
-                onClick={handleBookClose}
-              />
+                onClick={handleBookToggle}
+                onBlur={(event) => {
+                  if (
+                    bookMenuRef.current &&
+                    !bookMenuRef.current.contains(event.relatedTarget as Node)
+                  ) {
+                    handleBookClose();
+                  }
+                }}
+                aria-haspopup="true"
+                aria-expanded={bookMenuOpen}
+                className="group inline-flex items-center justify-center gap-3 border border-white/40 bg-white/5 px-6 py-3 uppercase tracking-[0.3em] text-xs font-roboto text-white transition-all duration-500 hover:border-[#BA8424] hover:bg-[#BA8424]/90 hover:shadow-[0_18px_35px_rgba(186,132,36,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BA8424] cursor-pointer"
+              >
+                <span>Book Now</span>
+                <BsChevronDown
+                  className={`h-3 w-3 transition-transform duration-400 pointer-events-none ${bookMenuOpen ? "translate-y-0 rotate-180" : "translate-y-[1px]"}`}
+                />
+              </button>
               <div
-                className={`fixed inset-x-4 top-[calc(72px+1rem)] z-50 origin-top rounded-3xl border border-white/10 bg-gradient-to-br from-[#11251C]/95 via-[#132D21]/90 to-[#0B1812]/95 p-[1px] shadow-[0_26px_60px_rgba(0,0,0,0.45)] transition-transform duration-300 ease-out ${
-                  bookMenuOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+                className={`absolute left-0 top-full mt-3 w-[min(18rem,calc(100vw-3rem))] overflow-hidden border border-white/10 bg-gradient-to-br from-[#15261E]/95 via-[#1D3428]/90 to-[#0B1611]/95 p-[1px] backdrop-blur-md transition-all duration-300 ${
+                  bookMenuOpen ? "pointer-events-auto opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-2"
                 }`}
               >
-                <div className="rounded-[2rem] bg-[#0F1A15]/95 p-4">
-                  
-                  <div className="flex flex-col gap-3">
-                    {bookLinks.map((link) => (
+                <div className="relative bg-[#0F1A15]/90 p-4 ">
+                  {bookLinks.map((link) => (
+                    link.external ? (
                       <a
                         key={link.title}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={handleBookClose}
-                        className="group flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-4 text-left transition-all duration-200 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:shadow-[0_20px_35px_rgba(0,0,0,0.4)]"
+                        className="group flex flex-col gap-1 border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/15"
                       >
-                        <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F4D8AF]">
+                        <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F0D0A2]">
                           {link.title}
                         </span>
+                        {link.schedule && (
+                          <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                            {link.schedule}
+                          </span>
+                        )}
                       </a>
-                    ))}
-                  </div>
+                    ) : (
+                      <Link
+                        key={link.title}
+                        href={link.href}
+                        onClick={handleBookClose}
+                        className="group flex flex-col gap-1 border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/15"
+                      >
+                        <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F0D0A2]">
+                          {link.title}
+                        </span>
+                        {link.schedule && (
+                          <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                            {link.schedule}
+                          </span>
+                        )}
+                      </Link>
+                    )
+                  ))}
                 </div>
               </div>
-            </>
-          )}
-        </div>
+            </div>
+            <div className="flex md:hidden items-center relative z-50">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBookToggle();
+                }}
+                onTouchStart={(e) => {
+                  e.stopPropagation();
+                }}
+                aria-haspopup="true"
+                aria-expanded={bookMenuOpen}
+                className="relative z-50 flex items-center justify-center gap-2 px-3 py-3 text-base tracking-[0.1em] font-rhiffiral font-bold uppercase text-white transition-all duration-300 hover:bg-[#F5F1E9] active:scale-[0.98] cursor-pointer"
+                style={{ WebkitTapHighlightColor: 'transparent', touchAction: 'manipulation', minWidth: '44px', minHeight: '44px' }}
+              >
+                <span>Book Now</span>
+                <BsChevronDown
+                  className={`h-4 w-4 transition-transform duration-400 pointer-events-none flex-shrink-0 ${bookMenuOpen ? "translate-y-0 rotate-180" : "translate-y-[1px]"}`}
+                />
+              </button>
+              {bookMenuPortalVisible && (
+                <>
+                  <button
+                    type="button"
+                    aria-hidden="true"
+                    className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-[1px] transition-opacity duration-300 ${
+                      bookMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                    }`}
+                    onClick={handleBookClose}
+                  />
+                  <div
+                    className={`fixed inset-x-4 top-[calc(72px+1rem)] z-50 origin-top rounded-none border border-white/10 bg-gradient-to-br from-[#11251C]/95 via-[#132D21]/90 to-[#0B1812]/95 p-[1px] shadow-[0_26px_60px_rgba(0,0,0,0.45)] transition-transform duration-300 ease-out ${
+                      bookMenuOpen
+                        ? "scale-100 opacity-100 pointer-events-auto"
+                        : "scale-95 opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    <div className="rounded-none bg-[#0F1A15]/95 p-4">
+                      <div className="flex flex-col gap-3">
+                        {bookLinks.map((link) => (
+                          link.external ? (
+                            <a
+                              key={link.title}
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={handleBookClose}
+                              className="group flex flex-col gap-1 rounded-none border border-white/10 bg-white/[0.06] px-4 py-4 text-left transition-all duration-200 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:shadow-[0_20px_35px_rgba(0,0,0,0.4)]"
+                            >
+                              <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F4D8AF]">
+                                {link.title}
+                              </span>
+                              {link.schedule && (
+                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                  {link.schedule}
+                                </span>
+                              )}
+                            </a>
+                          ) : (
+                            <Link
+                              key={link.title}
+                              href={link.href}
+                              onClick={handleBookClose}
+                              className="group flex flex-col gap-1 rounded-none border border-white/10 bg-white/[0.06] px-4 py-4 text-left transition-all duration-200 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:shadow-[0_20px_35px_rgba(0,0,0,0.4)]"
+                            >
+                              <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F4D8AF]">
+                                {link.title}
+                              </span>
+                              {link.schedule && (
+                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                  {link.schedule}
+                                </span>
+                              )}
+                            </Link>
+                          )
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </>
+        )}
       </div>
       {/* Center: Logo absolutely centered using relative wrapper */}
-      <div className="absolute pt-52 pl-3 lg:pl-0 lg:pt-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+      <div className="absolute pt-44 pl-3 lg:pl-0 lg:pt-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
         <Link href="/" onClick={handleLogoClick} className="flex items-center justify-center">
           <Image
             src="/assets/ysabel-logo-white.png"
@@ -267,22 +385,23 @@ const Header = () => {
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={handleToggle}
         >
-          <svg width="36" height="36" viewBox="0 0 36 36" className="transition-transform duration-500 ease-in-out cursor-pointer" style={{stroke: 'white', strokeWidth:1.9, strokeLinecap:'round'}}>
-            <line x1="6" y1="10" x2="30" y2="10" className={`transition-all duration-500 origin-center ${open && !isClosing ? 'translate-y-[8px] rotate-45' : ''}`} />
-            <line x1="6" y1="18" x2="30" y2="18" className={`transition-all duration-400 origin-center ${open && !isClosing ? 'opacity-0' : 'opacity-100'}`} />
-            <line x1="6" y1="26" x2="30" y2="26" className={`transition-all duration-500 origin-center ${open && !isClosing ? '-translate-y-[8px] -rotate-45' : ''}`} />
-          </svg>
+          <svg width="48" height="38" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="7" y1="14.5" x2="42" y2="14.5" stroke="#F2F2F2"/>
+<line x1="7" y1="22.5" x2="42" y2="22.5" stroke="#F2F2F2"/>
+</svg>
+
         </button>
       </div>
 
       {/* Fullscreen overlay menu with enter/exit animations */}
       {isOverlayVisible && (
         <div className={`${overlayClass} fixed inset-0 w-full h-full z-40 flex flex-col justify-center items-center`} >
-          <button className="absolute top-10 right-10 z-50" aria-label="Close menu" onClick={handleClose}>
-            <svg width="36" height="36" viewBox="0 0 36 36" className="cursor-pointer" style={{stroke: 'white', strokeWidth:3, strokeLinecap:'round'}}>
-              <line x1="6" y1="3" x2="30" y2="5" className={`transition-all duration-500 origin-center ${open && !isClosing ? 'translate-y-[8px] rotate-45' : ''}`} />
-              <line x1="9" y1="26" x2="33" y2="26" className={`transition-all duration-500 origin-center ${open && !isClosing ? '-translate-y-[8px] -rotate-45' : ''}`} />
-            </svg>
+          <button className="absolute top-10 right-6 z-50" aria-label="Close menu" onClick={handleClose}>
+          <svg width="48" height="38" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="12.4786" y1="6.27145" x2="37.2273" y2="31.0202" stroke="#F2F2F2"/>
+            <line x1="11.7714" y1="31.0214" x2="36.5202" y2="6.27271" stroke="#F2F2F2"/>
+          </svg>
+
           </button>
           <nav className="flex flex-col gap-10 items-center mt-8">
             {menuItems.map((item, i) => {
@@ -335,16 +454,27 @@ const Header = () => {
                           Book Now
                         </span>
                         {bookLinks.map((link) => (
-                          <a
-                            key={link.title}
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleClose}
-                            className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-transparent bg-white/[0.04] px-6 py-3 text-sm uppercase tracking-[0.3em] text-white transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:text-[#F4D8AF]"
-                          >
-                            {link.title}
-                          </a>
+                          link.external ? (
+                            <a
+                              key={link.title}
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={handleClose}
+                              className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-transparent bg-white/[0.04] px-6 py-3 text-sm uppercase tracking-[0.3em] text-white transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:text-[#F4D8AF]"
+                            >
+                              {link.title}
+                            </a>
+                          ) : (
+                            <Link
+                              key={link.title}
+                              href={link.href}
+                              onClick={handleClose}
+                              className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-transparent bg-white/[0.04] px-6 py-3 text-sm uppercase tracking-[0.3em] text-white transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:text-[#F4D8AF]"
+                            >
+                              {link.title}
+                            </Link>
+                          )
                         ))}
                       </div>
                     </div>

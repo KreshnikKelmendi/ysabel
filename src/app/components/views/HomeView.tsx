@@ -2,9 +2,7 @@
 import Main from "../Main/Main";
 
 const HomeView = () => {
-  return (
-    <Main />
-  );
+  return <Main />;
 };
 
 export default HomeView;
