@@ -23,27 +23,6 @@ const InfiniteText = ({
   const sectionRef = useRef<HTMLElement | null>(null);
   const [colorProgress, setColorProgress] = useState(0);
 
-  if (phrases.length === 0) {
-    return null;
-  }
-
-  const resolvedSecondaryPhrases =
-    secondaryPhrases && secondaryPhrases.length > 0 ? secondaryPhrases : phrases;
-
-  const primaryDuration = Math.max(durationSeconds, 6);
-  const secondaryDuration = Math.max(
-    secondaryDurationSeconds ?? Math.round(primaryDuration * 1.1),
-    6
-  );
-
-  const primaryStyle = {
-    "--marquee-duration": `${primaryDuration}s`,
-  } as CSSProperties;
-
-  const secondaryStyle = {
-    "--marquee-duration": `${secondaryDuration}s`,
-  } as CSSProperties;
-
   useEffect(() => {
     const element = sectionRef.current;
 
@@ -101,6 +80,27 @@ const InfiniteText = ({
       "--infinite-text-color": `rgb(${r}, ${g}, ${b})`,
     } as CSSProperties;
   }, [colorProgress]);
+
+  if (phrases.length === 0) {
+    return null;
+  }
+
+  const resolvedSecondaryPhrases =
+    secondaryPhrases && secondaryPhrases.length > 0 ? secondaryPhrases : phrases;
+
+  const primaryDuration = Math.max(durationSeconds, 6);
+  const secondaryDuration = Math.max(
+    secondaryDurationSeconds ?? Math.round(primaryDuration * 1.1),
+    6
+  );
+
+  const primaryStyle = {
+    "--marquee-duration": `${primaryDuration}s`,
+  } as CSSProperties;
+
+  const secondaryStyle = {
+    "--marquee-duration": `${secondaryDuration}s`,
+  } as CSSProperties;
 
   const wrapperClassName = className ? `${styles.wrapper} ${className}` : styles.wrapper;
 
