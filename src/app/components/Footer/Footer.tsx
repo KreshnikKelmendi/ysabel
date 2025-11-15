@@ -198,11 +198,10 @@ const Footer = () => {
               Location
             </span>
           </div>
-          <div className="flex flex-row gap-4 mt-2">
+          <div className="flex flex-col gap-2 mt-2">
             <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] uppercase font-light font-roboto leading-relaxed">
-              Prishtina, Lakrishte
+              Ukshin Hoti Street, Prishtina, Kosovo, 10000
             </span>
-            
           </div>
         </div>
 

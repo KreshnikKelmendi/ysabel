@@ -241,7 +241,7 @@ body {
   100%{ opacity:1; transform: translateY(0) skewY(0); filter: blur(0); }
 }
 
-.menu-radial-reveal { background:#1D3428; animation: radialReveal 2s cubic-bezier(0.65,0.04,0.21,1) forwards; }
+.menu-radial-reveal { background:#1D3428; animation: radialReveal 0.3s cubic-bezier(0.65,0.04,0.21,1) forwards; }
 @keyframes radialReveal {
   0%{ opacity:0; clip-path: circle(0% at 50% 100%);} 
   60%{ opacity:0.9; clip-path: circle(90% at 50% 70%);} 
@@ -291,7 +291,7 @@ body {
 
 /* Clean line reveal (no blur) for menu links */
 .reveal-wrap { display:inline-block; overflow:hidden; }
-.menu-link-lineup { display:inline-block; transform: translateY(100%); animation: lineup 1.2s cubic-bezier(0.65,0.04,0.21,1) forwards; }
+.menu-link-lineup { display:inline-block; transform: translateY(100%); animation: lineup 0.3s cubic-bezier(0.65,0.04,0.21,1) forwards; }
 @keyframes lineup {
   0%   { transform: translateY(100%); }
   80%  { transform: translateY(-4%); }

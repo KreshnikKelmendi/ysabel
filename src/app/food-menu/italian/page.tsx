@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
+import { InfiniteText } from "../../components/text";
 import { MenuCategory, MenuItem, FoodSubcategory, menuCategories } from "../data/types";
 import { italianMenuItems } from "../data/italian";
 
@@ -161,6 +162,12 @@ const ItalianMenuPage = () => {
                     </div>
                 </main>
             </div>
+            <InfiniteText
+                phrases={["Ysabel", "Ysabel"]}
+                secondaryPhrases={["Society", "Society"]}
+                durationSeconds={15}
+                secondaryDurationSeconds={14}
+            />
         </div>
     );
 };

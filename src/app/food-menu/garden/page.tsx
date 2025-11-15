@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Header from "../../components/Header/Header";
+import { InfiniteText } from "../../components/text";
 import { GardenMenuCategory, MenuItem, FoodSubcategory, gardenMenuCategories } from "../data/types";
 import { gardenMenuItems } from "../data/garden";
 
@@ -118,6 +119,12 @@ const GardenMenuPage = () => {
                     </div>
                 </main>
             </div>
+            <InfiniteText
+                phrases={["Ysabel", "Ysabel"]}
+                secondaryPhrases={["Society", "Society"]}
+                durationSeconds={15}
+                secondaryDurationSeconds={14}
+            />
         </div>
     );
 };

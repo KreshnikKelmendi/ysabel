@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import Header from "../components/Header/Header";
+import { InfiniteText } from "../components/text";
 import asianMenuImage from "../../../public/assets/asian.png";
 import italianMenuImage from "../../../public/assets/italian.png";
 import gardenMenuImage from "../../../public/assets/garden.png";
@@ -122,6 +123,12 @@ const FoodMenuPage = () => {
                     </motion.div>
                 </div>
             </div>
+            <InfiniteText
+                phrases={["Ysabel", "Ysabel"]}
+                secondaryPhrases={["Society", "Society"]}
+                durationSeconds={15}
+                secondaryDurationSeconds={14}
+            />
         </div>
     );
 };

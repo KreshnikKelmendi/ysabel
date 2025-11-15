@@ -5,8 +5,8 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { BsChevronDown } from "react-icons/bs";
 
 const menuItems = [
-  { label: "MENU", href: "/food-menu", type: "link" },
-  { label: "RESERVATION", href: "#reservation" },
+  { label: "MENU", href: "/food-menu", type: "link", bgImage: "/assets/ysabel-1.png" },
+  { label: "RESERVATION", href: "#reservation", bgImage: "/assets/ysabel-2.png" },
 ];
 
 const bookLinks = [
@@ -58,7 +58,9 @@ const Header = ({ menuType = null }: HeaderProps) => {
   const [bookMenuOpen, setBookMenuOpen] = useState(false);
   const [overlayBookOpen, setOverlayBookOpen] = useState(false);
   const [bookMenuPortalVisible, setBookMenuPortalVisible] = useState(false);
+  const [hoveredMenuItem, setHoveredMenuItem] = useState<string | null>(null);
   const bookMenuRef = useRef<HTMLDivElement | null>(null);
+  const overlayReservationRef = useRef<HTMLDivElement | null>(null);
 
   const asianSchedule = "Mon - Sun: 4:00 p.m. - 1:00 a.m.";
   const italianSchedule = "Mon - Sun: 11:00 a.m. - 12:00 a.m.";
@@ -158,6 +160,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
     if (!open) return;
     setIsClosing(true);
     setOverlayBookOpen(false);
+    setHoveredMenuItem(null);
     setTimeout(() => {
       setOpen(false);
       setIsClosing(false);
@@ -168,7 +171,30 @@ const Header = ({ menuType = null }: HeaderProps) => {
     if (!open) return;
     setBookMenuOpen(false);
     setOverlayBookOpen(false);
+    setHoveredMenuItem(null);
   }, [open]);
+
+  useEffect(() => {
+    if (!overlayBookOpen || !open) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        overlayReservationRef.current &&
+        event.target instanceof Node &&
+        !overlayReservationRef.current.contains(event.target)
+      ) {
+        setOverlayBookOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [overlayBookOpen, open]);
 
   const handleLogoClick = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -381,7 +407,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
       {/* Right: Food Menu button and Hamburger */}
       <div className="flex items-center gap-3 md:gap-4">
         <button
-          className="z-40 relative flex items-center justify-center w-12 h-12 group focus:outline-none"
+          className="z-40 relative flex items-center justify-center w-12 h-12 group focus:outline-none cursor-pointer"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={handleToggle}
         >
@@ -395,25 +421,46 @@ const Header = ({ menuType = null }: HeaderProps) => {
 
       {/* Fullscreen overlay menu with enter/exit animations */}
       {isOverlayVisible && (
-        <div className={`${overlayClass} fixed inset-0 w-full h-full z-40 flex flex-col justify-center items-center`} >
-          <button className="absolute top-10 right-6 z-50" aria-label="Close menu" onClick={handleClose}>
+        <div 
+          className={`${overlayClass} fixed inset-0 w-full h-full z-40 flex flex-col justify-center items-center`}
+          style={{
+            backgroundImage: hoveredMenuItem 
+              ? `url(${menuItems.find(item => item.label === hoveredMenuItem)?.bgImage})`
+              : undefined,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            transition: 'background-image 0.5s ease-in-out'
+          }}
+        >
+          {/* Overlay layer for better text readability */}
+          <div 
+            className="absolute inset-0 bg-[#1D3428]/80 transition-opacity duration-500"
+            style={{
+              opacity: hoveredMenuItem ? 0.85 : 0.95
+            }}
+          />
+          <button className="absolute top-10 right-6 z-50 cursor-pointer" aria-label="Close menu" onClick={handleClose}>
           <svg width="48" height="38" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="12.4786" y1="6.27145" x2="37.2273" y2="31.0202" stroke="#F2F2F2"/>
             <line x1="11.7714" y1="31.0214" x2="36.5202" y2="6.27271" stroke="#F2F2F2"/>
           </svg>
 
           </button>
-          <nav className="flex flex-col gap-10 items-center mt-8">
+          <nav className="relative z-10 flex flex-col gap-10 items-center mt-8">
             {menuItems.map((item, i) => {
               if (item.label === "RESERVATION") {
                 return (
                   <div
                     key={item.label}
+                    ref={overlayReservationRef}
                     className="relative flex flex-col items-center"
                   >
                     <button
                       type="button"
                       onClick={() => setOverlayBookOpen((prev) => !prev)}
+                      onMouseEnter={() => setHoveredMenuItem(item.label)}
+                      onMouseLeave={() => setHoveredMenuItem(null)}
                       aria-haspopup="true"
                       aria-expanded={overlayBookOpen}
                       className="menu-link-special text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all flex items-center gap-4"
@@ -421,38 +468,23 @@ const Header = ({ menuType = null }: HeaderProps) => {
                       <span className="reveal-wrap">
                         <span
                           className="menu-link-lineup"
-                          style={{ animationDelay: `${0.5 + i * 0.25}s` }}
+                          style={{ animationDelay: `0s` }}
                         >
                           {item.label}
                         </span>
                       </span>
-                      <svg
-                        width="18"
-                        height="12"
-                        viewBox="0 0 18 12"
-                        aria-hidden="true"
-                        className={`transition-transform duration-500 ${overlayBookOpen ? "rotate-180" : ""}`}
-                      >
-                        <path
-                          d="M2 2L9 9L16 2"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      <BsChevronDown
+                        className={`h-3 w-3 transition-transform duration-400 pointer-events-none ${overlayBookOpen ? "translate-y-0 rotate-180" : "translate-y-[1px]"}`}
+                      />
                     </button>
                     <div
-                      className={`mt-5 origin-top transform transition-all duration-300 ${
+                      className={`mt-5 w-[min(18rem,calc(100vw-3rem))] overflow-hidden border border-white/10 bg-gradient-to-br from-[#15261E]/95 via-[#1D3428]/90 to-[#0B1611]/95 p-[1px] backdrop-blur-md transition-all duration-300 ${
                         overlayBookOpen
-                          ? "pointer-events-auto scale-100 opacity-100"
-                          : "pointer-events-none scale-95 opacity-0"
+                          ? "pointer-events-auto opacity-100 translate-y-0"
+                          : "pointer-events-none opacity-0 translate-y-2"
                       }`}
                     >
-                      <div className="flex flex-col gap-3 rounded-3xl border border-white/10 bg-white/[0.05] px-6 py-6 text-center shadow-[0_24px_60px_rgba(0,0,0,0.45)]">
-                        <span className="uppercase tracking-[0.4em] text-xs text-[#F5F1E9]/80 font-roboto">
-                          Book Now
-                        </span>
+                      <div className="relative bg-[#0F1A15]/90 p-4">
                         {bookLinks.map((link) => (
                           link.external ? (
                             <a
@@ -461,18 +493,32 @@ const Header = ({ menuType = null }: HeaderProps) => {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={handleClose}
-                              className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-transparent bg-white/[0.04] px-6 py-3 text-sm uppercase tracking-[0.3em] text-white transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:text-[#F4D8AF]"
+                              className="group flex flex-col gap-1 border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/15"
                             >
-                              {link.title}
+                              <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F0D0A2]">
+                                {link.title}
+                              </span>
+                              {link.schedule && (
+                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                  {link.schedule}
+                                </span>
+                              )}
                             </a>
                           ) : (
                             <Link
                               key={link.title}
                               href={link.href}
                               onClick={handleClose}
-                              className="group inline-flex items-center justify-center gap-3 rounded-2xl border border-transparent bg-white/[0.04] px-6 py-3 text-sm uppercase tracking-[0.3em] text-white transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/20 hover:text-[#F4D8AF]"
+                              className="group flex flex-col gap-1 border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#BA8424]/60 hover:bg-[#BA8424]/15"
                             >
-                              {link.title}
+                              <span className="text-sm font-semibold uppercase tracking-[0.25em] text-white group-hover:text-[#F0D0A2]">
+                                {link.title}
+                              </span>
+                              {link.schedule && (
+                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                  {link.schedule}
+                                </span>
+                              )}
                             </Link>
                           )
                         ))}
@@ -486,11 +532,13 @@ const Header = ({ menuType = null }: HeaderProps) => {
                 <a
                   href={item.href}
                   key={item.label}
-                  className="menu-link-special text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all"
+                  onMouseEnter={() => setHoveredMenuItem(item.label)}
+                  onMouseLeave={() => setHoveredMenuItem(null)}
+                  className="menu-link-special text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all relative z-10"
                   onClick={handleClose}
                 >
                   <span className="reveal-wrap">
-                    <span className="menu-link-lineup" style={{ animationDelay: `${0.5 + i * 0.25}s` }}>
+                    <span className="menu-link-lineup" style={{ animationDelay: `0s` }}>
                       {item.label}
                     </span>
                   </span>
@@ -498,28 +546,8 @@ const Header = ({ menuType = null }: HeaderProps) => {
               );
             })}
           </nav>
-          <div className="mt-12 flex items-center justify-center gap-6">
-            <a
-              href="https://www.instagram.com/ysabelsociety/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-              aria-label="Instagram"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href="https://www.facebook.com/ysabelsociety"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-              aria-label="Facebook"
-            >
-              <FacebookIcon />
-            </a>
-          </div>
-          {/* Logo bottom center */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+          {/* Logo and Social Icons bottom center */}
+          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center gap-6">
             <Image
               src="/assets/ysabel-text.png"
               alt="Ysabel Logo Overlay"
@@ -527,7 +555,27 @@ const Header = ({ menuType = null }: HeaderProps) => {
               height={40}
               className="object-contain select-none opacity-60"
               priority={false}
-            />          
+            />
+            <div className="flex items-center gap-6">
+              <a
+                href="https://www.instagram.com/ysabelsociety/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                aria-label="Instagram"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href="https://www.facebook.com/ysabelsociety"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                aria-label="Facebook"
+              >
+                <FacebookIcon />
+              </a>
+            </div>
           </div>
         </div>
       )}
