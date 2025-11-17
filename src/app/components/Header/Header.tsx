@@ -461,7 +461,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
 
           </button>
           <nav className="relative z-10 flex flex-col gap-10 items-center mt-16 px-6 text-center">
-            {menuItems.map((item, i) => {
+            {menuItems.map((item) => {
               if (item.label === "RESERVATION") {
                 return (
                   <div

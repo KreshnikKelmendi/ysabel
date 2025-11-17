@@ -123,7 +123,7 @@ const GardenMenuPage = () => {
                                         const allItems = menuItems[activeCategory] as (MenuItem | FoodSubcategory)[];
                                         const hasNextItem = index < allItems.length - 1;
                                         const nextItem = hasNextItem ? allItems[index + 1] : null;
-                                        const showDivider = hasNextItem && !('title' in (nextItem as any));
+                                        const showDivider = hasNextItem && nextItem !== null && !('title' in nextItem);
                                         
                                         return (
                                             <div key={index} className="flex flex-col">

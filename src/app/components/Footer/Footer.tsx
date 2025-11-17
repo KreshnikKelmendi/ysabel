@@ -31,11 +31,6 @@ const FacebookIcon = () => (
   </svg>
 );
 
-const EnvelopeIcon = () => (
-  <svg viewBox="0 0 24 24" className={iconStyles} aria-hidden="true">
-    <path d="M3.75 5.25h16.5A1.75 1.75 0 0 1 22 7v10a1.75 1.75 0 0 1-1.75 1.75H3.75A1.75 1.75 0 0 1 2 17V7a1.75 1.75 0 0 1 1.75-1.75Zm0 1.5a.25.25 0 0 0-.25.25v.32l8.5 5.37 8.5-5.37V7a.25.25 0 0 0-.25-.25H3.75Zm16.5 3.11-8.23 5.2a.75.75 0 0 1-.81 0L3 9.86V17c0 .14.11.25.25.25h16.5a.25.25 0 0 0 .25-.25v-7.14Z" />
-  </svg>
-);
 
 const connectLinks = [
   {
