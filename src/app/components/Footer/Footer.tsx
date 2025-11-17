@@ -152,7 +152,7 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative overflow-hidden text-[#e8e3d8] flex flex-col tracking-[0.12em] px-[clamp(2rem,8vw,10rem)] pt-[clamp(4rem,14vw,11rem)] pb-[clamp(3rem,16vw,8rem)] md:px-[clamp(2.5rem,8vw,12rem)] md:pt-[clamp(5rem,9vw+2rem,11rem)]"
+      className="relative overflow-hidden text-[#e8e3d8] flex flex-col tracking-[0.12em] px-[clamp(2rem,8vw,10rem)] pt-[clamp(4rem,14vw,11rem)] pb-8 md:px-[clamp(2.5rem,8vw,12rem)] md:pt-[clamp(5rem,9vw+2rem,11rem)]"
       style={{
         background: `linear-gradient(180deg, ${topColor} 0%, ${bottomColor} 100%)`,
       }}

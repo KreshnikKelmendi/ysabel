@@ -124,7 +124,7 @@ const ItalianMenuPage = () => {
                                                         {item.name}
                                                     </h3>
                                                     <span className="text-xl md:text-2xl font-semibold font-roboto text-gray-300 whitespace-nowrap">
-                                                        {item.price}<span className="text-xs">€</span>
+                                                        {item.price}<span className="text-xl">€</span>
                                                     </span>
                                                 </div>
                                                 <p className="text-base md:text-lg text-white/80 mb-4">

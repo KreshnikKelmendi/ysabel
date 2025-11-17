@@ -20,7 +20,7 @@ export type MenuItemsData = {
 };
 
 export type GardenMenuItemsData = {
-    "DAY MENU": MenuItem[];
+    "DAY MENU": (MenuItem | FoodSubcategory)[];
     "EVENING MENU": MenuItem[];
     "DRINKS MENU": FoodSubcategory[] | MenuItem[];
 };
