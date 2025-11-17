@@ -262,15 +262,7 @@ const Footer = () => {
                 <span className="text-[0.75rem] tracking-inherit">{label}</span>
               </a>
             ))}
-            <a 
-              href="mailto:info@ysabelsociety.com" 
-              className="group inline-flex items-center gap-4 no-underline text-[#e8e3d8] tracking-[0.24em] uppercase text-[0.75rem] font-light font-roboto transition-all duration-500 ease-out hover:text-[#F5E6C8]"
-            >
-              <span className="inline-flex w-7 h-7 items-center justify-center rounded-sm border border-[rgba(186,132,36,0.2)] bg-[rgba(186,132,36,0.05)] transition-all duration-500 ease-out group-hover:border-[#BA8424] group-hover:bg-[rgba(186,132,36,0.15)] group-hover:shadow-[0_0_12px_rgba(186,132,36,0.2)] [&_svg]:w-4 [&_svg]:h-4 [&_svg]:text-[#e8e3d8] group-hover:[&_svg]:text-[#F5E6C8]">
-                <EnvelopeIcon />
-              </span>
-              <span className="text-[0.75rem] tracking-inherit break-all">info@ysabelsociety.com</span>
-            </a>
+          
           </div>
         </div>
       </div>

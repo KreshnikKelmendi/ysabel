@@ -31,7 +31,84 @@ const AboutUsinHomePage = () => {
 
     return (
         <div className="relative bg-[#1D3428] px-6 lg:px-24 overflow-hidden">
-            <div className="flex flex-col lg:flex-row max-w-7xl mx-auto overflow-hidden">
+            {/* Mobile-first layout */}
+            <div className="lg:hidden max-w-md mx-auto py-14 flex flex-col gap-10">
+                <motion.div
+                    className="flex flex-col"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.35 }}
+                >
+                    <motion.div
+                        className="relative flex items-center min-h-[25vh]"
+                        variants={rightVariants}
+                        custom={1}
+                        style={{ willChange: "transform, opacity" }}
+                    >
+                        <p className="absolute left-0 top-1/2 -translate-y-1/2 text-[#BA8424] font-rhiffiral text-5xl uppercase leading-tight z-10 mx-auto">
+                            A world beyond taste and time
+                        </p>
+                        <div className="ml-auto flex flex-col gap-4 w-[40%] shrink-0 relative z-0">
+                            <div className="relative h-[30vh] aspect-[3/4] overflow-hidden">
+                                <Image
+                                    src="/assets/ysabel-3.png"
+                                    alt="Dining lamp vignette"
+                                    fill
+                                    sizes="45vw"
+                                    className="object-cover opacity-45"
+                                />
+                            </div>
+                            
+                        </div>
+                      
+                    </motion.div>
+                    <div className="relative w-[53%] lg:w-full aspect-square overflow-hidden">
+                                <Image
+                                    src="/assets/asian good 6I9A0405 (1).png"
+                                    alt="Place setting detail"
+                                    fill
+                                    sizes="45vw"
+                                    className="object-cover"
+                                />
+                            </div>
+                    <motion.p
+                        className="text-[#BDBDB9] font-roboto text-base leading-relaxed pt-8"
+                        variants={leftVariants}
+                        custom={2}
+                        style={{ willChange: "transform, opacity" }}
+                    >
+                        On the 22nd floor, the Italian restaurant tempts you with rich, soulful dishes and the warmth of true cucina vibes. One level higher, the Asian restaurant turns up the rhythm and bold flavors, open flame, and a fusion menu that hits every note. And at the very top, on the 24th floor, the Botanic Garden Rooftop comes alive, lush greenery, crafted cocktails, great vibe and the feeling that the city below is all yours.
+                    </motion.p>
+                   
+                    <motion.button
+                        className="self-start text-[#BA8424] uppercase tracking-[0.2em] text-xs flex items-center gap-2"
+                        variants={leftVariants}
+                        custom={3}
+                        style={{ willChange: "transform, opacity" }}
+                    >
+                        About us <span className="text-lg">↘</span>
+                    </motion.button>
+                </motion.div>
+                <motion.div
+                    className="relative w-full self-start overflow-hidden"
+                    variants={bottomVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.35 }}
+                    style={{ willChange: "transform, opacity" }}
+                >
+                    <Image
+                        src="/assets/good IMG_7834.png"
+                        alt="Chef presenting dish"
+                        width={900}
+                        height={600}
+                        className="w-full h-auto object-cover"
+                        sizes="100vw"
+                    />
+                </motion.div>
+            </div>
+            {/* Desktop layout */}
+            <div className="hidden lg:flex lg:flex-row max-w-7xl mx-auto overflow-hidden">
                 <motion.div
                     className="lg:w-[30%] h-full flex flex-col lg:justify-center gap-6 py-16 lg:py-64"
                     initial="hidden"
@@ -70,17 +147,17 @@ const AboutUsinHomePage = () => {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ staggerChildren: 0.28 }}
                 >
-                    <div className="flex flex-col lg:flex-row lg:justify-center">
+                    <div className="flex flex-col lg:flex-row lg:justify-center space-y-5 lg:space-y-0">
                         <motion.p
-                            className="text-5xl lg:text-[65px] z-30 relative font-rhiffiral lg:pt-32 text-[#BDBDB9] text-center leading-tight lg:w-[633px]"
+                            className="text-5xl lg:text-[65px] z-30 relative font-rhiffiral uppercase lg:pt-32 text-[#BA8424] text-center leading-tight lg:w-[633px]"
                             variants={rightVariants}
                             custom={1}
                             style={{ willChange: "transform, opacity" }}
                         >
-                            “A world beyond taste and time.”
+                            A world beyond taste and time
                         </motion.p>
                         <motion.div
-                            className="relative h-[243px] lg:mt-20 overflow-hidden"
+                            className="relative h-[243px] lg:mt-16 overflow-hidden"
                             variants={rightVariants}
                             custom={2}
                             style={{ willChange: "transform, opacity" }}

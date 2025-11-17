@@ -188,7 +188,7 @@ const Parallax = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full pt-16 lg:pt-0 2xl:pt-20"
+      className="relative w-full pt-8 lg:pt-0 2xl:pt-20"
       style={{ height: `320vh` }}
     >
       <div className="sticky top-0 flex h-[120vh] lg:h-screen w-full items-center justify-center overflow-hidden">

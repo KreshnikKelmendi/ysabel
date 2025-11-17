@@ -435,11 +435,24 @@ const Header = ({ menuType = null }: HeaderProps) => {
         >
           {/* Overlay layer for better text readability */}
           <div 
-            className="absolute inset-0 bg-[#1D3428]/80 transition-opacity duration-500"
+            className="absolute inset-0 bg-[#1D3428]/85 transition-opacity duration-500"
             style={{
               opacity: hoveredMenuItem ? 0.85 : 0.95
             }}
           />
+          {/* Background crest same as footer */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <div className="relative w-[min(34rem,80vw)] h-[min(34rem,80vw)] opacity-65">
+              <Image
+                src="/assets/big-ysabel.png"
+                alt="Ysabel crest background"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 80vw, 34rem"
+                priority={false}
+              />
+            </div>
+          </div>
           <button className="absolute top-10 right-6 z-50 cursor-pointer" aria-label="Close menu" onClick={handleClose}>
           <svg width="48" height="38" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="12.4786" y1="6.27145" x2="37.2273" y2="31.0202" stroke="#F2F2F2"/>
@@ -447,7 +460,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
           </svg>
 
           </button>
-          <nav className="relative z-10 flex flex-col gap-10 items-center mt-8">
+          <nav className="relative z-10 flex flex-col gap-10 items-center mt-16 px-6 text-center">
             {menuItems.map((item, i) => {
               if (item.label === "RESERVATION") {
                 return (
@@ -463,7 +476,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
                       onMouseLeave={() => setHoveredMenuItem(null)}
                       aria-haspopup="true"
                       aria-expanded={overlayBookOpen}
-                      className="menu-link-special text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all flex items-center gap-4"
+                      className="menu-link-special cursor-pointer text-[#BDBDB9] font-rhiffiral text-3xl md:text-6xl tracking-widest transition-all flex items-center gap-4"
                     >
                       <span className="reveal-wrap">
                         <span
@@ -474,7 +487,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
                         </span>
                       </span>
                       <BsChevronDown
-                        className={`h-3 w-3 transition-transform duration-400 pointer-events-none ${overlayBookOpen ? "translate-y-0 rotate-180" : "translate-y-[1px]"}`}
+                        className={`h-4 w-4 lg:h-6 lg:w-6 transition-transform duration-400 pointer-events-none ${overlayBookOpen ? "translate-y-0 rotate-180" : "translate-y-[1px]"}`}
                       />
                     </button>
                     <div

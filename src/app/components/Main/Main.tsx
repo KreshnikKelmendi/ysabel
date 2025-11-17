@@ -60,7 +60,7 @@ const Main = () => {
         >
           <p className="heroText text-[4vh] lg:text-[7vh] font-rhiffiral text-center leading-tight tracking-[1px] uppercase mt-[-50px] lg:mt-[-100px]">
             <span className="heroLine block">It is a temple of taste</span>
-            <span className="heroLine block">and atmosphere.</span>
+            <span className="heroLine block">and atmosphere</span>
           </p>
         </div>
       </div>
