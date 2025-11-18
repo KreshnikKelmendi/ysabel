@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Header from "../../components/Header/Header";
 import { InfiniteText } from "../../components/text";
 import { MenuCategory, MenuItem, FoodSubcategory, menuCategories } from "../data/types";
 import { asianMenuItems } from "../data/asian";
+import backgroundImage from "../../../../public/assets/asian-bg.png";
 
 const menuItems = asianMenuItems;
 
@@ -13,8 +15,17 @@ const AsianMenuPage = () => {
 
     return (
         <div className="relative min-h-screen bg-[#1D3428] text-white overflow-hidden">
-           
-            <div className="absolute inset-0 bg-[#1D3428]/50" />
+            <div className="fixed inset-0 w-full h-full z-0">
+                <Image
+                    src={backgroundImage}
+                    alt="Asian menu background"
+                    fill
+                    priority
+                    className="opacity-30 object-cover w-full"
+                    sizes="100vw"
+                />
+            </div>
+            <div className="fixed inset-0 bg-[#1D3428]/90 pointer-events-none z-0" />
             <div className="relative z-10 flex min-h-screen flex-col">
                 <Header menuType="asian" />
                 <main className="flex flex-1 items-center justify-center pt-60 px-6 py-20 md:px-12 lg:px-10">
