@@ -25,7 +25,7 @@ const bookLinks = [
   {
     href: "/food-menu/garden",
     title: "Garden",
-    schedule: "Mon - Sun: 7:00 a.m. - 1:00 a.m.",
+    schedule: "Mon - Sun: 10:00 a.m. - 1:00 a.m.",
     external: false,
   },
 ];
@@ -64,7 +64,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
 
   const asianSchedule = "Mon - Sun: 4:00 p.m. - 1:00 a.m.";
   const italianSchedule = "Mon - Sun: 11:00 a.m. - 12:00 a.m.";
-  const gardenSchedule = "Mon - Sun: 7:00 a.m. - 1:00 a.m.";
+  const gardenSchedule = "Mon - Sun: 10:00 a.m. - 1:00 a.m.";
   
   const getBookLink = () => {
     if (menuType === "asian") {
