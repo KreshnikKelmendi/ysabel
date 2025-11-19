@@ -231,7 +231,7 @@ const Parallax = () => {
             >
               {activeSection.title}
             </h2>
-            <p className="mx-auto max-w-3xl font-roboto text-sm leading-relaxed text-white/85 md:text-base lg:text-[20px] animate-menuStagger">
+            <p className="mx-auto max-w-3xl mt-6 font-roboto text-[16px] leading-tight text-white md:text-base lg:text-[20px] animate-menuStagger">
               {activeSection.description}
             </p>
           </div>
@@ -240,7 +240,7 @@ const Parallax = () => {
             <button
               type="button"
               onClick={() => handleNavigate(activeSection.href)}
-              className="group inline-flex items-center justify-center gap-2 px-6 py-2 text-[10px] font-roboto lg:text-[23px] uppercase tracking-[0.38em] text-[#BA8424] transition-all duration-300 hover:tracking-[0.40em] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:text-xs cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-2 text-[14px] font-roboto lg:text-[23px] uppercase tracking-[0.38em] text-[#BA8424] transition-all duration-300 hover:tracking-[0.40em] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:text-xs cursor-pointer"
             >
               <span className="relative">
                 <span className="absolute inset-x-0 bottom-0 h-px bg-[#BA8424] opacity-0 transition-opacity duration-300 group-hover:opacity-80" />

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
+import { BsArrowDownRight } from "react-icons/bs";
 
 const AboutUsinHomePage = () => {
     const easeBezier = [0.16, 1, 0.3, 1] as const;
@@ -81,12 +82,12 @@ const AboutUsinHomePage = () => {
                     </motion.p>
                    
                     <motion.button
-                        className="self-start text-[#BA8424] uppercase tracking-[0.2em] text-xs flex items-center gap-2"
+                        className="self-start text-[#BA8424] uppercase tracking-[0.2em] text-xs flex items-center gap-1 pt-2"
                         variants={leftVariants}
                         custom={3}
                         style={{ willChange: "transform, opacity" }}
                     >
-                        About us <span className="text-lg">↘</span>
+                        About us <BsArrowDownRight className="text-[12px] text-[#BA8424]" />
                     </motion.button>
                 </motion.div>
                 <motion.div
@@ -139,6 +140,14 @@ const AboutUsinHomePage = () => {
                     >
                         On the 22nd floor, the Italian restaurant tempts you with rich, soulful dishes and the warmth of true cucina vibes. One level higher, the Asian restaurant turns up the rhythm and bold flavors, open flame, and a fusion menu that hits every note. And at the very top, on the 24th floor, the Botanic Garden Rooftop comes alive, lush greenery, crafted cocktails, great vibe and the feeling that the city below is all yours.
                     </motion.p>
+                    <motion.button
+                        className="self-start text-[#BA8424] uppercase tracking-[0.1em] hover:underline hover:underline-offset-4 hover:duration-500 ease-in-out text-[23px] flex items-center gap-1"
+                        variants={leftVariants}
+                        custom={3}
+                        style={{ willChange: "transform, opacity" }}
+                    >
+                        About us <BsArrowDownRight className="text-base text-[#BA8424]" />
+                    </motion.button>
                 </motion.div>
                 <motion.div
                     className="lg:w-[70%] h-full flex flex-col lg:pl-16"
@@ -157,7 +166,7 @@ const AboutUsinHomePage = () => {
                             A world beyond taste and time
                         </motion.p>
                         <motion.div
-                            className="relative h-[243px] lg:mt-16 overflow-hidden"
+                            className="relative h-[300px] w-[243px] lg:mt-16 overflow-hidden flex-shrink-0"
                             variants={rightVariants}
                             custom={2}
                             style={{ willChange: "transform, opacity" }}
@@ -167,7 +176,7 @@ const AboutUsinHomePage = () => {
                                 alt="Dining room interior"
                                 fill
                                 sizes="(min-width:1024px) 243px, 50vw"
-                                className="object-contain"
+                                className="object-cover"
                             />
                         </motion.div>
                     </div>
