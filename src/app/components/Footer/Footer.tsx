@@ -204,7 +204,7 @@ const Footer = () => {
         <div className="flex flex-col">
           <div className="mb-6 pb-4 border-b border-[rgba(186,132,36,0.2)]">
             <span className="text-[0.65rem] tracking-[0.4em] text-[#BA8424] font-medium uppercase font-roboto">
-              Hours
+              Opening Hours
             </span>
           </div>
           <div className="flex flex-col gap-3 mt-2">
