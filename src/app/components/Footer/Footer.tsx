@@ -185,7 +185,7 @@ const Footer = () => {
       </div>
 
       {/* Main content grid with elegant dividers */}
-      <div className="relative z-[1] grid grid-cols-1 md:grid-cols-3 gap-[clamp(3rem,8vw,6rem)] md:gap-[clamp(3rem,6vw,7rem)] mb-[clamp(4rem,12vw,8rem)]">
+      <div className="relative z-[1] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[clamp(3rem,8vw,6rem)] md:gap-[clamp(3rem,6vw,7rem)] mb-[clamp(4rem,12vw,8rem)]">
         {/* Location Section */}
         <div className="flex flex-col">
           <div className="mb-6 pb-4 border-b border-[rgba(186,132,36,0.2)]">
@@ -197,6 +197,41 @@ const Footer = () => {
             <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] uppercase font-light font-roboto leading-relaxed">
               Ukshin Hoti Street, Prishtina, Kosovo, 10000
             </span>
+          </div>
+        </div>
+
+        {/* Hours Section */}
+        <div className="flex flex-col">
+          <div className="mb-6 pb-4 border-b border-[rgba(186,132,36,0.2)]">
+            <span className="text-[0.65rem] tracking-[0.4em] text-[#BA8424] font-medium uppercase font-roboto">
+              Hours
+            </span>
+          </div>
+          <div className="flex flex-col gap-3 mt-2">
+            <div className="flex flex-col gap-1">
+              <span className="text-[0.7rem] tracking-[0.2em] text-[#BA8424] uppercase font-medium font-roboto">
+                Asian
+              </span>
+              <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
+                Mon - Sun: 4:00 p.m. - 1:00 a.m.
+              </span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[0.7rem] tracking-[0.2em] text-[#BA8424] uppercase font-medium font-roboto">
+                Italian
+              </span>
+              <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
+                Mon - Sun: 11:00 a.m. - 12:00 a.m.
+              </span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-[0.7rem] tracking-[0.2em] text-[#BA8424] uppercase font-medium font-roboto">
+                Garden
+              </span>
+              <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
+                Mon - Sun: 10:00 a.m. - 1:00 a.m.
+              </span>
+            </div>
           </div>
         </div>
 
