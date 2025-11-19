@@ -20,7 +20,7 @@ type ParallaxSection = {
 
 const parallaxSections: ParallaxSection[] = [
   {
-    src: "/assets/ysabel-1.png",
+    src: "/assets/asian-asian.png",
     title: "Asian Menu",
     description:
       "Experience bold aromatics, delicate textures, and seasonal produce woven into contemporary Asian plates.",
@@ -34,11 +34,11 @@ const parallaxSections: ParallaxSection[] = [
         alt: "Chef finishing an Asian-inspired dish",
       },
     ],
-    overlayColor: "rgba(15, 32, 26, 0.42)",
+    overlayColor: "rgba(0, 0, 0, 0.42)",
     href: "/food-menu/asian",
   },
   {
-    src: "/assets/ysabel-2.png",
+    src: "/assets/ysabel-1.png",
     title: "Italian Menu",
     description:
       "Handmade pastas, heritage sauces, and tableside finishes evoke the warmth of modern Italian dining.",
@@ -56,7 +56,7 @@ const parallaxSections: ParallaxSection[] = [
     href: "/food-menu/italian",
   },
   {
-    src: "/assets/ysabel-3.png",
+    src: "/assets/ysabel-2.png",
     title: "Garden Menu",
     description:
       "Fresh herbs, vibrant produce, and botanical cocktails showcase the flavours of our garden terrace.",
@@ -70,7 +70,7 @@ const parallaxSections: ParallaxSection[] = [
         alt: "Fresh cocktail with garden garnish",
       },
     ],
-    overlayColor: "rgba(20, 40, 18, 0.4)",
+    overlayColor: "rgba(0, 0, 0, 0.4)",
     href: "/food-menu/garden",
   },
 ];
@@ -220,18 +220,18 @@ const Parallax = () => {
           }}
         />
 
-        <div className="relative z-40 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-8 px-6 text-center text-white transition-all duration-500">
+        <div className="relative z-40 mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-8 px-6 text-center text-[#BA8424] transition-all duration-500">
           <div
             key={activeSection.title}
             className="flex flex-col items-center gap-4 animate-fadeInScale"
           >
             <h2
-              className="font-rhiffiral pt-16 text-[clamp(3.2rem,6.5vw,6.8rem)] font-light uppercase tracking-[0.2em] leading-[1.05] md:max-w-3xl"
+              className="font-rhiffiral pt-16 text-[clamp(3.2rem,6.5vw,6.8rem)] font-light uppercase tracking-[0.2em] leading-[1.05]"
               style={{ textShadow: "0 14px 34px rgba(0,0,0,0.55)" }}
             >
               {activeSection.title}
             </h2>
-            <p className="mx-auto max-w-3xl font-roboto text-sm leading-relaxed text-white/85 md:text-base lg:text-lg animate-menuStagger">
+            <p className="mx-auto max-w-3xl font-roboto text-sm leading-relaxed text-white/85 md:text-base lg:text-[20px] animate-menuStagger">
               {activeSection.description}
             </p>
           </div>
@@ -240,10 +240,10 @@ const Parallax = () => {
             <button
               type="button"
               onClick={() => handleNavigate(activeSection.href)}
-              className="group inline-flex items-center justify-center gap-2 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.38em] text-white transition-all duration-300 hover:tracking-[0.48em] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:text-xs"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-2 text-[10px] font-roboto lg:text-[23px] uppercase tracking-[0.38em] text-[#BA8424] transition-all duration-300 hover:tracking-[0.40em] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:text-xs cursor-pointer"
             >
               <span className="relative">
-                <span className="absolute inset-x-0 bottom-0 h-px bg-white/60 opacity-0 transition-opacity duration-300 group-hover:opacity-80" />
+                <span className="absolute inset-x-0 bottom-0 h-px bg-[#BA8424] opacity-0 transition-opacity duration-300 group-hover:opacity-80" />
                 View {activeSection.title}
               </span>
               <span className="relative flex h-8 w-8 items-center justify-center">
@@ -253,7 +253,7 @@ const Parallax = () => {
                   height="18"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="relative text-white transition-transform duration-300 group-hover:translate-x-1.5"
+                  className="relative text-[#BA8424] transition-transform duration-300 group-hover:translate-x-1.5"
                   stroke="currentColor"
                   strokeWidth="1.6"
                   strokeLinecap="round"

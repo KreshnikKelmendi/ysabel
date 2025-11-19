@@ -77,7 +77,7 @@ const FoodMenuPage = () => {
                         Explore our food menus
                     </motion.h1>
                     <motion.p
-                        className="max-w-2xl text-center text-base md:text-[20px] text-white leading-relaxed mb-6"
+                        className="max-w-2xl text-center font-roboto text-base lg:text-[20px] text-white  mb-6"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -85,7 +85,7 @@ const FoodMenuPage = () => {
                         Discover three distinct culinary journeys crafted by our chefs—from vibrant Asian flavors to hearty Italian classics and fresh garden-inspired dishes.
                     </motion.p>
                     <motion.p
-                        className="max-w-2xl text-center text-base lg:text-[20px] text-[#BA8424] leading-relaxed mb-10"
+                        className="max-w-2xl text-center font-roboto text-base lg:text-[20px] text-[#BA8424] leading-relaxed mb-10"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

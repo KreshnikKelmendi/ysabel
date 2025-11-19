@@ -189,12 +189,12 @@ const Footer = () => {
         {/* Location Section */}
         <div className="flex flex-col">
           <div className="mb-6 pb-4 border-b border-[rgba(186,132,36,0.2)]">
-            <span className="text-[0.65rem] tracking-[0.4em] text-[#BA8424] font-medium uppercase font-roboto">
+            <span className="text-[0.65rem] text-[#BA8424] font-medium uppercase font-roboto">
               Location
             </span>
           </div>
           <div className="flex flex-col gap-2 mt-2">
-            <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] uppercase font-light font-roboto leading-relaxed">
+            <span className="text-[0.75rem] text-[#e8e3d8] uppercase font-light font-roboto leading-relaxed">
               Ukshin Hoti Street, Prishtina, Kosovo, 10000
             </span>
           </div>
@@ -203,32 +203,32 @@ const Footer = () => {
         {/* Hours Section */}
         <div className="flex flex-col">
           <div className="mb-6 pb-4 border-b border-[rgba(186,132,36,0.2)]">
-            <span className="text-[0.65rem] tracking-[0.4em] text-[#BA8424] font-medium uppercase font-roboto">
+            <span className="text-[0.65rem] text-[#BA8424] uppercase font-roboto">
               Opening Hours
             </span>
           </div>
           <div className="flex flex-col gap-3 mt-2">
             <div className="flex flex-col gap-1">
-              <span className="text-[0.7rem] tracking-[0.2em] text-[#BA8424] uppercase font-medium font-roboto">
+              <span className="text-[0.7rem]  text-[#BA8424] uppercase font-medium font-roboto">
                 Asian
               </span>
-              <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
+              <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
                 Mon - Sun: 4:00 p.m. - 1:00 a.m.
               </span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-[0.7rem] tracking-[0.2em] text-[#BA8424] uppercase font-medium font-roboto">
+              <span className="text-[0.7rem] text-[#BA8424] uppercase font-medium font-roboto">
                 Italian
               </span>
-              <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
+              <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
                 Mon - Sun: 11:00 a.m. - 12:00 a.m.
               </span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-[0.7rem] tracking-[0.2em] text-[#BA8424] uppercase font-medium font-roboto">
+              <span className="text-[0.7rem] text-[#BA8424] uppercase font-medium font-roboto">
                 Garden
               </span>
-              <span className="text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
+              <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
                 Mon - Sun: 10:00 a.m. - 1:00 a.m.
               </span>
             </div>
@@ -238,7 +238,7 @@ const Footer = () => {
         {/* Navigation Section */}
         <div className="flex flex-col">
           <div className="mb-6 pb-4 border-b border-[rgba(186,132,36,0.2)]">
-            <span className="text-[0.65rem] tracking-[0.4em] text-[#BA8424] font-medium uppercase font-roboto">
+            <span className="text-[0.65rem] text-[#BA8424] font-medium uppercase font-roboto">
               Navigation
             </span>
           </div>
@@ -248,7 +248,7 @@ const Footer = () => {
                 <Link 
                   key={label} 
                   href={href} 
-                  className="group relative text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] uppercase no-underline font-light font-roboto transition-all duration-500 ease-out hover:text-[#F5E6C8] hover:tracking-[0.3em]"
+                  className="group relative text-[0.75rem] text-[#e8e3d8] uppercase no-underline font-roboto transition-all duration-500 ease-out hover:text-[#F5E6C8] hover:tracking-[0.3em]"
                 >
                   <span className="relative z-10">{label}</span>
                   <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-[#BA8424] to-transparent transition-all duration-500 ease-out group-hover:w-full"></span>
@@ -260,7 +260,7 @@ const Footer = () => {
                 <Link 
                   key={label} 
                   href={href} 
-                  className="group relative text-[0.75rem] tracking-[0.24em] text-[#e8e3d8] uppercase no-underline font-light font-roboto transition-all duration-500 ease-out hover:text-[#F5E6C8] hover:tracking-[0.3em]"
+                  className="group relative text-[0.75rem] text-[#e8e3d8] uppercase no-underline font-roboto transition-all duration-500 ease-out hover:text-[#F5E6C8] hover:tracking-[0.3em]"
                 >
                   <span className="relative z-10">{label}</span>
                   <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-[#BA8424] to-transparent transition-all duration-500 ease-out group-hover:w-full"></span>
@@ -273,7 +273,7 @@ const Footer = () => {
         {/* Connect Section */}
         <div className="flex flex-col">
           <div className="mb-6 pb-4 border-b border-[rgba(186,132,36,0.2)]">
-            <span className="text-[0.65rem] tracking-[0.4em] text-[#BA8424] font-medium uppercase font-roboto">
+            <span className="text-[0.65rem] text-[#BA8424] font-medium uppercase font-roboto">
               Connect
             </span>
           </div>
@@ -284,7 +284,7 @@ const Footer = () => {
                 href={href}
                 target={external ? "_blank" : undefined}
                 rel={external ? "noreferrer" : undefined}
-                className="group inline-flex items-center gap-4 no-underline text-[#e8e3d8] tracking-[0.24em] uppercase text-[0.75rem] font-light font-roboto transition-all duration-500 ease-out hover:text-[#F5E6C8]"
+                className="group inline-flex items-center gap-4 no-underline text-[#e8e3d8] uppercase text-[0.75rem] font-light font-roboto transition-all duration-500 ease-out hover:text-[#F5E6C8]"
               >
                 <span className="inline-flex w-7 h-7 items-center justify-center rounded-sm border border-[rgba(186,132,36,0.2)] bg-[rgba(186,132,36,0.05)] transition-all duration-500 ease-out group-hover:border-[#BA8424] group-hover:bg-[rgba(186,132,36,0.15)] group-hover:shadow-[0_0_12px_rgba(186,132,36,0.2)] [&_svg]:w-4 [&_svg]:h-4 [&_svg]:text-[#e8e3d8] group-hover:[&_svg]:text-[#F5E6C8]">
                   <Icon />
@@ -306,7 +306,7 @@ const Footer = () => {
       {/* Refined wordmark */}
       <div
         ref={wordmarkRef}
-        className={`relative z-[1] flex justify-center md:justify-start gap-[clamp(0.3rem,2.5vw,2rem)] text-[clamp(3.5rem,20vw,11rem)] tracking-[clamp(0.3rem,2.5vw,1.6rem)] text-[#D4C5A9] uppercase font-rhiffiral leading-none mb-[clamp(2rem,6vw,4rem)] ${
+        className={`relative z-[1] flex justify-center md:justify-start gap-[clamp(0.3rem,2.5vw,2rem)] text-[clamp(3.5rem,20vw,11rem)] tracking-[clamp(0.3rem,2.5vw,1.6rem)] lg:tracking-[clamp(0.9rem,3.5vw,8.6rem)] text-[#D4C5A9] uppercase font-rhiffiral leading-none mb-[clamp(2rem,6vw,4rem)] ${
           wordmarkVisible ? "pointer-events-none" : ""
         }`}
       >
