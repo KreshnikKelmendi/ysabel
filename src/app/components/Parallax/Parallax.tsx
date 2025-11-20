@@ -191,7 +191,7 @@ const Parallax = () => {
       className="relative w-full pt-8 lg:pt-0 2xl:pt-20"
       style={{ height: `320vh` }}
     >
-      <div className="sticky top-0 flex h-[120vh] lg:h-screen w-full items-center justify-center overflow-hidden">
+      <div className="sticky top-0 flex h-fit lg:h-screen w-full items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           {parallaxSections.map(({ src }, index) => {
             return (
