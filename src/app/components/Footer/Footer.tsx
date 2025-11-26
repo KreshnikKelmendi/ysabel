@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { FiPhone } from "react-icons/fi";
 
 const navigationPrimary = [
   { label: "Home", href: "/" },
@@ -231,6 +232,34 @@ const Footer = () => {
               <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
                 Mon - Sun: 10:00 a.m. - 1:00 a.m.
               </span>
+            </div>
+          </div>
+          
+          {/* Phone Numbers Section */}
+          <div className="mt-6 pt-6 border-t border-[rgba(186,132,36,0.15)]">
+            <div className="flex flex-col gap-3">
+              <a 
+                href="tel:038705000"
+                className="group inline-flex items-center gap-3 no-underline transition-all duration-500 ease-out"
+              >
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-sm border border-[rgba(186,132,36,0.2)] bg-[rgba(186,132,36,0.05)] transition-all duration-500 ease-out group-hover:border-[#BA8424] group-hover:bg-[rgba(186,132,36,0.15)] group-hover:shadow-[0_0_12px_rgba(186,132,36,0.2)]">
+                  <FiPhone className="w-4 h-4 text-[#e8e3d8] group-hover:text-[#F5E6C8] transition-colors duration-500" />
+                </span>
+                <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed group-hover:text-[#F5E6C8] transition-colors duration-500">
+                  038705000
+                </span>
+              </a>
+              <a 
+                href="tel:048705000"
+                className="group inline-flex items-center gap-3 no-underline transition-all duration-500 ease-out"
+              >
+                <span className="inline-flex w-8 h-8 items-center justify-center rounded-sm border border-[rgba(186,132,36,0.2)] bg-[rgba(186,132,36,0.05)] transition-all duration-500 ease-out group-hover:border-[#BA8424] group-hover:bg-[rgba(186,132,36,0.15)] group-hover:shadow-[0_0_12px_rgba(186,132,36,0.2)]">
+                  <FiPhone className="w-4 h-4 text-[#e8e3d8] group-hover:text-[#F5E6C8] transition-colors duration-500" />
+                </span>
+                <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed group-hover:text-[#F5E6C8] transition-colors duration-500">
+                  048705000
+                </span>
+              </a>
             </div>
           </div>
         </div>

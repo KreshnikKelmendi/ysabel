@@ -8,10 +8,10 @@ import { MenuCategory, MenuItem, FoodSubcategory, menuCategories } from "../data
 import { asianMenuItems } from "../data/asian";
 import backgroundImage from "../../../../public/assets/asian-bg.png";
 
-const menuItems = asianMenuItems;
-
 const AsianMenuPage = () => {
     const [activeCategory, setActiveCategory] = useState<MenuCategory>("FOOD");
+    
+    const menuItems = asianMenuItems;
 
     return (
         <div className="relative min-h-screen bg-[#1D3428] text-white overflow-hidden">

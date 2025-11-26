@@ -8,10 +8,10 @@ import { GardenMenuCategory, MenuItem, FoodSubcategory, gardenMenuCategories } f
 import { gardenMenuItems } from "../data/garden";
 import backgroundImage from "../../../../public/assets/garden.png";
 
-const menuItems = gardenMenuItems;
-
 const GardenMenuPage = () => {
     const [activeCategory, setActiveCategory] = useState<GardenMenuCategory>("DAY MENU");
+    
+    const menuItems = gardenMenuItems;
 
     return (
         <div className="relative min-h-screen bg-[#1D3428] text-white overflow-hidden">

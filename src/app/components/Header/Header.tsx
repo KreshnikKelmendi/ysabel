@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useCallback, useEffect, useRef } from "react";
 import { BsChevronDown } from "react-icons/bs";
+import { FiPhone } from "react-icons/fi";
 
 const menuItems = [
   { label: "MENU", href: "/food-menu", type: "link", bgImage: "/assets/ysabel-1.png" },
@@ -303,6 +304,39 @@ const Header = ({ menuType = null }: HeaderProps) => {
                       </Link>
                     )
                   ))}
+                  
+                  {/* Phone Numbers Section */}
+                  <div className="mt-4 pt-5 border-t border-white/10">
+                    <div className="mb-3 px-3 py-2">
+                      <span className="text-[0.65rem] text-white font-medium uppercase tracking-[0.2em] font-roboto">
+                        Call Us
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <a 
+                        href="tel:038705000"
+                        className="group flex items-center transition-all duration-300 hover:opacity-80"
+                      >
+                        <span className="inline-flex w-7 h-7 items-center justify-center">
+                          <FiPhone className="w-4 h-4 text-white transition-all duration-300 group-hover:text-[#F0D0A2]" />
+                        </span>
+                        <span className="text-sm text-white font-roboto tracking-wide group-hover:text-[#F0D0A2] transition-colors duration-300">
+                          038 70 50 00
+                        </span>
+                      </a>
+                      <a 
+                        href="tel:048705000"
+                        className="group flex items-center py-2 transition-all duration-300 hover:opacity-80"
+                      >
+                        <span className="inline-flex w-7 h-7 items-center justify-center">
+                          <FiPhone className="w-4 h-4 text-white transition-all duration-300 group-hover:text-[#F0D0A2]" />
+                        </span>
+                        <span className="text-sm text-white font-roboto tracking-wide group-hover:text-[#F0D0A2] transition-colors duration-300">
+                          048 70 50 00
+                        </span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -382,6 +416,39 @@ const Header = ({ menuType = null }: HeaderProps) => {
                             </Link>
                           )
                         ))}
+                        
+                        {/* Phone Numbers Section */}
+                        <div className="mt-3 pt-4 border-t border-white/10">
+                          <div className="mb-3 px-1">
+                            <span className="text-[0.65rem] text-white font-medium uppercase tracking-[0.2em] font-roboto">
+                              Call Us
+                            </span>
+                          </div>
+                          <div className="flex flex-col gap-3">
+                            <a 
+                              href="tel:038705000"
+                              className="group flex items-center gap-3.5 py-2.5 transition-all duration-200 hover:opacity-80"
+                            >
+                              <span className="inline-flex w-8 h-8 items-center justify-center">
+                                <FiPhone className="w-4.5 h-4.5 text-white transition-all duration-200 group-hover:text-[#F4D8AF]" />
+                              </span>
+                              <span className="text-sm text-white font-roboto tracking-wide group-hover:text-[#F4D8AF] transition-colors duration-200">
+                                038 70 50 00
+                              </span>
+                            </a>
+                            <a 
+                              href="tel:048705000"
+                              className="group flex items-center gap-3.5 py-2.5 transition-all duration-200 hover:opacity-80"
+                            >
+                              <span className="inline-flex w-8 h-8 items-center justify-center">
+                                <FiPhone className="w-4.5 h-4.5 text-white transition-all duration-200 group-hover:text-[#F4D8AF]" />
+                              </span>
+                              <span className="text-sm text-white font-roboto tracking-wide group-hover:text-[#F4D8AF] transition-colors duration-200">
+                                048 70 50 00
+                              </span>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -535,6 +602,39 @@ const Header = ({ menuType = null }: HeaderProps) => {
                             </Link>
                           )
                         ))}
+                        
+                        {/* Phone Numbers Section */}
+                        <div className="mt-4 pt-5 border-t border-white/10">
+                          <div className="mb-3 px-3 py-2">
+                            <span className="text-[0.65rem] text-white font-medium uppercase tracking-[0.2em] font-roboto">
+                              Call Us
+                            </span>
+                          </div>
+                          <div className="flex flex-col gap-1">
+                            <a 
+                              href="tel:038705000"
+                              className="group flex items-center transition-all duration-300 hover:opacity-80"
+                            >
+                              <span className="inline-flex w-7 h-7 items-center justify-center">
+                                <FiPhone className="w-4 h-4 text-white transition-all duration-300 group-hover:text-[#F0D0A2]" />
+                              </span>
+                              <span className="text-sm text-white font-roboto tracking-wide group-hover:text-[#F0D0A2] transition-colors duration-300">
+                                038 70 50 00
+                              </span>
+                            </a>
+                            <a 
+                              href="tel:048705000"
+                              className="group flex items-center py-2 transition-all duration-300 hover:opacity-80"
+                            >
+                              <span className="inline-flex w-7 h-7 items-center justify-center">
+                                <FiPhone className="w-4 h-4 text-white transition-all duration-300 group-hover:text-[#F0D0A2]" />
+                              </span>
+                              <span className="text-sm text-white font-roboto tracking-wide group-hover:text-[#F0D0A2] transition-colors duration-300">
+                                048 70 50 00
+                              </span>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex min-h-screen flex-col">
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ScrollToTop />
-        </div>
+        <LanguageProvider>
+          <div className="flex min-h-screen flex-col">
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <ScrollToTop />
+          </div>
+        </LanguageProvider>
       </body>
     </html>
   );
