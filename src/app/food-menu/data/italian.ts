@@ -44,12 +44,13 @@ export const italianMenuItems: MenuItemsData = {
         {
             title: "MAINS",
             items: [
-                { name: "Prime rib-eye", description: "delicately marbeled for superb full-bodied flavour, served with gremolata", price: "39" },
+                { name: "Prime rib-eye", description: "uruguyaian prime rib, delicately marbeled for superb full-bodied flavour, served with gremonolata", price: "55" },
+                { name: "Filett Mignon", description: "kosovan prime filett of beef served with gremonolata", price: "24" },
                 { name: "Veal Milanese", description: "thinly sliced veal sirloin, served with a velvety porcini mushroom sauce", price: "19" },
-                { name: "Aubergine Cotoletta V", description: "crisp, golden slices of aubergine, layered with melted mozzarella and served over a rich, slow-cooked tomato fondue", price: "12" },
                 { name: "Truffle Chicken Escalope", description: "crisp and tender chicken escalope topped with a perfectly fried egg, finished with a luxurious truffle-infused sauce", price: "13" },
-                { name: "Sea Bream", description: "delicately pan-seared sea bream, served with a vibrant sauce vierge, cherry tomatoes, fresh herbs, and extra virgin olive oil", price: "15.5" },
-                { name: "Salmon with Peperonata", description: "succulent fillet of salmon, gently seared for a crisp skin and tender center, paired with a vibrant Italian peperonata", price: "22" },
+                { name: "Aubergine Cotoletta V", description: "crisp, golden slices of aubergine, layered with melted mozzarella and served over a rich, slow-cooked tomato fondue", price: "12" },
+                { name: "Sea Bream", description: "delicately pan-seared sea bream, served with a vibrant sauce vierge of cherry tomatoes, fresh herbs, and extra virgin olive oil", price: "15.5" },
+                { name: "Salmon with Pepperonatta", description: "succulent fillet of salmon, gently seared for a crisp skin and tender center, paired with a vibrant Italian peperonata", price: "22" },
             ],
         },
         {
@@ -78,7 +79,7 @@ export const italianMenuItems: MenuItemsData = {
                 { name: "STARTERS", description: "", price: "" },
                 { name: "Onion Soup V", description: "a silky, slow cooked blend of sweet white onions and cream, finished with a touch of gorgonzola cheese", price: "" },
                 { name: "Calamari fritti", description: "lightly battered and golden fried calamari, served with a zesty lemon mayonnaise", price: "" },
-                { name: "MAINS", description: "", price: "" },
+                { name: "Mains", description: "", price: "" },
                 { name: "Truffle chicken escalope", description: "crisp and tender chicken escalope topped with a perfectly fried egg, finished with a luxurious truffle-infused sauce", price: "" },
                 { name: "Penne Arrabbiata V", description: "classic Italian penne tossed in a vibrant, spicy tomato sauce infused with garlic and chilli", price: "" },
                 { name: "DESSERTS", description: "", price: "" },
