@@ -26,7 +26,7 @@ const bookLinks = [
   {
     href: "/food-menu/garden",
     title: "Garden",
-    schedule: "Mon - Sun: 10:00 a.m. - 1:00 a.m.",
+    schedule: ["Mon - Fri: 7:00 a.m. - 1:00 a.m.", "Sat - Sun: 10:00 a.m. - 1:00 a.m."],
     external: false,
   },
 ];
@@ -65,7 +65,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
 
   const asianSchedule = "Mon - Sun: 4:00 p.m. - 1:00 a.m.";
   const italianSchedule = "Mon - Sun: 11:00 a.m. - 12:00 a.m.";
-  const gardenSchedule = "Mon - Sun: 10:00 a.m. - 1:00 a.m.";
+  const gardenSchedule = ["Mon - Fri: 7:00 a.m. - 1:00 a.m.", "Sat - Sun: 10:00 a.m. - 1:00 a.m."];
   
   const getBookLink = () => {
     if (menuType === "asian") {
@@ -215,11 +215,17 @@ const Header = ({ menuType = null }: HeaderProps) => {
             // Garden: No link, just text
             <div className="flex flex-col items-start gap-1 px-2 py-1 uppercase tracking-[0.3em] text-xs font-roboto text-white">
               <span>Garden</span>
-              {getSchedule() && (
+              {getSchedule() && Array.isArray(getSchedule()) ? (
+                <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
+                  {(getSchedule() as string[]).map((line, index) => (
+                    <span key={index}>{line}</span>
+                  ))}
+                </div>
+              ) : getSchedule() ? (
                 <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
-                  {getSchedule()}
+                  {getSchedule() as string}
                 </span>
-              )}
+              ) : null}
             </div>
           ) : (
             // Asian/Italian: With link
@@ -281,9 +287,17 @@ const Header = ({ menuType = null }: HeaderProps) => {
                           {link.title}
                         </span>
                         {link.schedule && (
-                          <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
-                            {link.schedule}
-                          </span>
+                          Array.isArray(link.schedule) ? (
+                            <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
+                              {link.schedule.map((line, index) => (
+                                <span key={index}>{line}</span>
+                              ))}
+                            </div>
+                          ) : (
+                            <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                              {link.schedule}
+                            </span>
+                          )
                         )}
                       </a>
                     ) : (
@@ -297,9 +311,17 @@ const Header = ({ menuType = null }: HeaderProps) => {
                           {link.title}
                         </span>
                         {link.schedule && (
-                          <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
-                            {link.schedule}
-                          </span>
+                          Array.isArray(link.schedule) ? (
+                            <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
+                              {link.schedule.map((line, index) => (
+                                <span key={index}>{line}</span>
+                              ))}
+                            </div>
+                          ) : (
+                            <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                              {link.schedule}
+                            </span>
+                          )
                         )}
                       </Link>
                     )
@@ -393,9 +415,17 @@ const Header = ({ menuType = null }: HeaderProps) => {
                                 {link.title}
                               </span>
                               {link.schedule && (
-                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
-                                  {link.schedule}
-                                </span>
+                                Array.isArray(link.schedule) ? (
+                                  <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule.map((line, index) => (
+                                      <span key={index} className="block">{line}</span>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule}
+                                  </span>
+                                )
                               )}
                             </a>
                           ) : (
@@ -409,9 +439,17 @@ const Header = ({ menuType = null }: HeaderProps) => {
                                 {link.title}
                               </span>
                               {link.schedule && (
-                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
-                                  {link.schedule}
-                                </span>
+                                Array.isArray(link.schedule) ? (
+                                  <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule.map((line, index) => (
+                                      <span key={index} className="block">{line}</span>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule}
+                                  </span>
+                                )
                               )}
                             </Link>
                           )
@@ -579,9 +617,17 @@ const Header = ({ menuType = null }: HeaderProps) => {
                                 {link.title}
                               </span>
                               {link.schedule && (
-                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
-                                  {link.schedule}
-                                </span>
+                                Array.isArray(link.schedule) ? (
+                                  <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule.map((line, index) => (
+                                      <span key={index} className="block">{line}</span>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule}
+                                  </span>
+                                )
                               )}
                             </a>
                           ) : (
@@ -595,9 +641,17 @@ const Header = ({ menuType = null }: HeaderProps) => {
                                 {link.title}
                               </span>
                               {link.schedule && (
-                                <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
-                                  {link.schedule}
-                                </span>
+                                Array.isArray(link.schedule) ? (
+                                  <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule.map((line, index) => (
+                                      <span key={index} className="block">{line}</span>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <span className="text-xs text-white/70 font-roboto tracking-wide normal-case">
+                                    {link.schedule}
+                                  </span>
+                                )
                               )}
                             </Link>
                           )

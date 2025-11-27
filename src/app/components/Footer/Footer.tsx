@@ -229,9 +229,10 @@ const Footer = () => {
               <span className="text-[0.7rem] text-[#BA8424] uppercase font-medium font-roboto">
                 Garden
               </span>
-              <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
-                Mon - Sun: 10:00 a.m. - 1:00 a.m.
-              </span>
+              <div className="flex flex-col text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed">
+                <span>Mon - Fri: 7:00 a.m. - 1:00 a.m.</span>
+                <span>Sat - Sun: 10:00 a.m. - 1:00 a.m.</span>
+              </div>
             </div>
           </div>
           
