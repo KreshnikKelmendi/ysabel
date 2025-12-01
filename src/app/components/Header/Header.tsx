@@ -12,13 +12,13 @@ const menuItems = [
 
 const bookLinks = [
   {
-    href: "https://www.sevenrooms.com/explore/asian/reservations/create/search/",
+    href: "https://www.sevenrooms.com/explore/asian/reservations/create/search/?venues=asian%2Citalian",
     title: "Book for Asian",
     schedule: "Mon - Sun: 4:00 p.m. - 1:00 a.m.",
     external: true,
   },
   {
-    href: "https://www.sevenrooms.com/explore/italian/reservations/create/search/",
+    href: "https://www.sevenrooms.com/explore/italian/reservations/create/search/?venues=italian%2Casian",
     title: "Book for Italian",
     schedule: "Mon - Sun: 11:00 a.m. - 12:00 a.m.",
     external: true,
@@ -69,9 +69,9 @@ const Header = ({ menuType = null }: HeaderProps) => {
   
   const getBookLink = () => {
     if (menuType === "asian") {
-      return "https://www.sevenrooms.com/explore/asian/reservations/create/search/";
+      return "https://www.sevenrooms.com/explore/asian/reservations/create/search/?venues=asian%2Citalian";
     } else if (menuType === "italian") {
-      return "https://www.sevenrooms.com/explore/italian/reservations/create/search/";
+      return "https://www.sevenrooms.com/explore/italian/reservations/create/search/?venues=italian%2Casian";
     } else if (menuType === "garden") {
       return "https://www.sevenrooms.com/explore/garden/reservations/create/search/";
     }
