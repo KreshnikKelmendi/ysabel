@@ -226,6 +226,9 @@ const Header = ({ menuType = null }: HeaderProps) => {
                   {getSchedule() as string}
                 </span>
               ) : null}
+              <span className="text-[0.65rem] text-[#BA8424] md:text-[#BA8424] font-roboto tracking-wide normal-case italic mt-1">
+                Kitchen does not work from 14:30 pm - 16:00 pm
+              </span>
             </div>
           ) : (
             // Asian/Italian: With link
@@ -322,6 +325,11 @@ const Header = ({ menuType = null }: HeaderProps) => {
                               {link.schedule}
                             </span>
                           )
+                        )}
+                        {link.title === "Garden" && (
+                          <span className="text-[0.55rem] text-[#BA8424] font-roboto tracking-wide normal-case italic mt-1">
+                            Kitchen does not work from 14:30 p.m. - 16:00 p.m.
+                          </span>
                         )}
                       </Link>
                     )
@@ -450,6 +458,11 @@ const Header = ({ menuType = null }: HeaderProps) => {
                                     {link.schedule}
                                   </span>
                                 )
+                              )}
+                              {link.title === "Garden" && (
+                                <span className="text-[0.65rem] text-white/60 font-roboto tracking-wide normal-case italic mt-1">
+                                  Kitchen does not work from 14:30 pm - 16:00 pm
+                                </span>
                               )}
                             </Link>
                           )
@@ -652,6 +665,11 @@ const Header = ({ menuType = null }: HeaderProps) => {
                                     {link.schedule}
                                   </span>
                                 )
+                              )}
+                              {link.title === "Garden" && (
+                                <span className="text-[0.65rem] text-[#BA8424] md:text-[#BA8424] font-roboto tracking-wide normal-case italic mt-1">
+                                  Kitchen does not work from 14:30 p.m. - 16:00 p.m.
+                                </span>
                               )}
                             </Link>
                           )

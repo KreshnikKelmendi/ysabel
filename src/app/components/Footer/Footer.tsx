@@ -233,6 +233,9 @@ const Footer = () => {
                 <span>Mon - Fri: 7:00 a.m. - 1:00 a.m.</span>
                 <span>Sat - Sun: 10:00 a.m. - 1:00 a.m.</span>
               </div>
+              <span className="text-[0.65rem] text-[#BA8424] font-light font-roboto italic mt-1">
+                Kitchen does not work from 14:30 p.m. - 16:00 p.m.
+              </span>
             </div>
           </div>
           
