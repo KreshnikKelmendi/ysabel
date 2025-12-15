@@ -250,7 +250,7 @@ const Footer = () => {
                   <FiPhone className="w-4 h-4 text-[#e8e3d8] group-hover:text-[#F5E6C8] transition-colors duration-500" />
                 </span>
                 <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed group-hover:text-[#F5E6C8] transition-colors duration-500">
-                  038705000
+                  038 70 50 00
                 </span>
               </a>
               <a 
@@ -261,7 +261,7 @@ const Footer = () => {
                   <FiPhone className="w-4 h-4 text-[#e8e3d8] group-hover:text-[#F5E6C8] transition-colors duration-500" />
                 </span>
                 <span className="text-[0.75rem] text-[#e8e3d8] normal-case font-light font-roboto leading-relaxed group-hover:text-[#F5E6C8] transition-colors duration-500">
-                  048705000
+                  048 70 50 00
                 </span>
               </a>
             </div>

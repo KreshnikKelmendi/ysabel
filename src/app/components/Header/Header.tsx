@@ -24,10 +24,10 @@ const bookLinks = [
     external: true,
   },
   {
-    href: "/food-menu/garden",
+    href: "https://www.sevenrooms.com/explore/rooftopkosovo/reservations/create/search",
     title: "Garden",
     schedule: ["Mon - Fri: 7:00 a.m. - 1:00 a.m.", "Sat - Sun: 10:00 a.m. - 1:00 a.m."],
-    external: false,
+    external: true,
   },
 ];
 
@@ -73,7 +73,7 @@ const Header = ({ menuType = null }: HeaderProps) => {
     } else if (menuType === "italian") {
       return "https://www.sevenrooms.com/explore/italian/reservations/create/search/?venues=italian%2Casian";
     } else if (menuType === "garden") {
-      return "https://www.sevenrooms.com/explore/garden/reservations/create/search/";
+      return "https://www.sevenrooms.com/explore/rooftopkosovo/reservations/create/search";
     }
     return null;
   };
