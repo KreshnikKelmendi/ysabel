@@ -25,7 +25,7 @@ const bookLinks = [
   },
   {
     href: "https://www.sevenrooms.com/explore/rooftopkosovo/reservations/create/search",
-    title: "Garden",
+    title: "Book for Garden",
     schedule: ["Mon - Fri: 7:00 a.m. - 1:00 a.m.", "Sat - Sun: 10:00 a.m. - 1:00 a.m."],
     external: true,
   },
@@ -214,7 +214,13 @@ const Header = ({ menuType = null }: HeaderProps) => {
           menuType === "garden" ? (
             // Garden: No link, just text
             <div className="flex flex-col items-start gap-1 px-2 py-1 uppercase tracking-[0.3em] text-xs font-roboto text-white">
-              <span>Garden</span>
+              <a
+              href={getBookLink() || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-start gap-1 py-1 uppercase tracking-[0.3em] text-xs font-roboto text-white transition-all duration-500 hover:text-[#BA8424] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BA8424]"
+            >
+              <span>Book for Garden</span>
               {getSchedule() && Array.isArray(getSchedule()) ? (
                 <div className="flex flex-col text-xs text-white/70 font-roboto tracking-wide normal-case">
                   {(getSchedule() as string[]).map((line, index) => (
@@ -226,8 +232,9 @@ const Header = ({ menuType = null }: HeaderProps) => {
                   {getSchedule() as string}
                 </span>
               ) : null}
+              </a>
               <span className="text-[0.65rem] text-[#BA8424] md:text-[#BA8424] font-roboto tracking-wide normal-case italic mt-1">
-                Kitchen does not work from 14:30 pm - 16:00 pm
+                Kitchen does not work <br />from 14:30 pm - 16:00 pm
               </span>
             </div>
           ) : (
