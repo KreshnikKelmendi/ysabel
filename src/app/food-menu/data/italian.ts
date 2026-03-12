@@ -19,18 +19,18 @@ export const italianMenuItems: MenuItemsData = {
                 { name: "Calamari Fritti", description: "lightly battered and golden-fried calamari, served with a zesty lemon mayonnaise", price: "7.5" },
                 { name: "Burrata V", description: "burrata served over flame roasted red peppers, finished with a drizzle of fragrant Ysabel pesto", price: "9.5" },
                 { name: "Tuna Tartare", description: "fresh, hand cut tuna tossed in a bright citrus ponzu dressing, layered over smooth crushed avocado", price: "16" },
-                { name: "Insalata Waldorf V", description: "a vibrant twist on the classic, crisp greens tossed with caramelised pear, toasted walnuts, and creamy gorgonzola", price: "6.5" },
-                { name: "Garlic Prawns", description: "sautéed king prawns with garlic and sea salt, finished with a bold, spicy tomato dressing", price: "12" },
+                { name: "Insalata Waldorf V", description: "a vibrant twist on the classic, crisp greens tossed with caramelised pear, toasted walnuts, and creamy gorgonzola", price: "6.75" },
+                { name: "Garlic Prawns", description: "sautéed king prawns with garlic and sea salt, finished with a bold, spicy tomato dressing", price: "12.5" },
             ],
         },
         {
             title: "PASTA AND RISOTTO",
             items: [
                 { name: "Penne Arrabbiata V", description: "classic Italian penne tossed in a vibrant, spicy tomato sauce infused with garlic and chilli", price: "8.5" },
-                { name: "Seafood Spaghetti", description: "fresh spaghetti pasta tossed with a medley of calamari, prawns, mussels, and clams in a light tomato and white wine sauce", price: "13" },
-                { name: "Ragu Pappardelle", description: "wide ribbons of pappardelle pasta coated in a slow braised beef ragu, simmered to perfection with tomatoes, herbs, and red wine", price: "11.5" },
-                { name: "Truffle and Mushroom Tagliatelle V", description: "silky tagliatelle pasta tossed in a creamy white sauce with a medley of wild mushrooms and fragrant truffle", price: "15" },
-                { name: "Spicy Prawn Risotto", description: "creamy Arborio rice cooked to perfection, served with juicy king prawns in a rich, spicy tomato sauce", price: "15.5" },
+                { name: "Prawn Spaghetti", description: "fresh spaghetti pasta tossed with prawns, tomatoes and olive oil", price: "12" },
+                { name: "Ragu Pappardelle", description: "wide ribbons of pappardelle pasta coated in a slow braised beef ragu, simmered to perfection with tomatoes, herbs, and red wine", price: "14.25" },
+                { name: "Truffle and Mushroom Tagliatelle V", description: "silky tagliatelle pasta tossed in a creamy white sauce with a medley of wild mushrooms and fragrant truffle", price: "15.5" },
+                { name: "Prawn Risotto", description: "creamy Arborio rice cooked to perfection, served with juicy king prawns in a rich, spicy tomato sauce", price: "13" },
             ],
         },
         {
@@ -45,12 +45,12 @@ export const italianMenuItems: MenuItemsData = {
             title: "MAINS",
             items: [
                 { name: "Prime rib-eye", description: "uruguyaian prime rib, delicately marbeled for superb full-bodied flavour, served with gremonolata", price: "55" },
-                { name: "Filett Mignon", description: "kosovan prime filett of beef served with gremonolata", price: "24" },
-                { name: "Veal Milanese", description: "thinly sliced veal sirloin, served with a velvety porcini mushroom sauce", price: "19" },
-                { name: "Truffle Chicken Escalope", description: "crisp and tender chicken escalope topped with a perfectly fried egg, finished with a luxurious truffle-infused sauce", price: "13" },
+                { name: "Filett Mignon", description: "kosovan prime filett of beef served with gremonolata", price: "24.50" },
+                { name: "Veal Milanese", description: "thinly sliced veal sirloin, served with a velvety porcini mushroom sauce", price: "19.50" },
+                { name: "Truffle Chicken Escalope", description: "crisp and tender chicken escalope topped with a perfectly fried egg, finished with a luxurious truffle-infused sauce", price: "13.50" },
                 { name: "Aubergine Cotoletta V", description: "crisp, golden slices of aubergine, layered with melted mozzarella and served over a rich, slow-cooked tomato fondue", price: "12" },
-                { name: "Sea Bream", description: "delicately pan-seared sea bream, served with a vibrant sauce vierge of cherry tomatoes, fresh herbs, and extra virgin olive oil", price: "15.5" },
-                { name: "Salmon with Pepperonatta", description: "succulent fillet of salmon, gently seared for a crisp skin and tender center, paired with a vibrant Italian peperonata", price: "22" },
+                { name: "Sea Bream", description: "delicately pan-seared sea bream, served with a vibrant sauce vierge of cherry tomatoes, fresh herbs, and extra virgin olive oil", price: "16.5" },
+                { name: "Salmon with Pepperonatta", description: "succulent fillet of salmon, gently seared for a crisp skin and tender center, paired with a vibrant Italian peperonata", price: "24.50" },
             ],
         },
         {
@@ -66,7 +66,7 @@ export const italianMenuItems: MenuItemsData = {
         {
             title: "DESSERTS",
             items: [
-                { name: "Tiramisu", description: "layers of espresso soaked ladyfingers and mascarpone cream, dusted with cocoa", price: "7.5" },
+                { name: "Tiramisu", description: "layers of espresso soaked ladyfingers and mascarpone cream, dusted with cocoa", price: "8" },
                 { name: "Vanilla Cheesecake", description: "smooth and creamy vanilla cheesecake topped with a medley of macerated berries", price: "7.5" },
                 { name: "Ice Cream & Sorbets", description: "a selection of artisan ice creams and refreshing fruit sorbets", price: "6" },
                 { name: "Chocolate Bomb", description: "chocolate sphere filled with silky chocolate mousse and vanilla ice cream, set on a bed of whipped cream and served with warm dark chocolate sauce", price: "14" },
@@ -95,6 +95,27 @@ export const italianMenuItems: MenuItemsData = {
     ],
     
     DRINKS: [
+        {
+            title: "COCKTAILS",
+            items: [
+                { name: "NEGRONI", description: "Gin, Campari, Sweet Vermouth", price: "8" },
+                { name: "ROSSINI", description: "Prosecco, Strawberry Liqueur", price: "7" },
+                { name: "LIMONCELLO SPRITZ", description: "Limoncello Luxardo, Prosecco", price: "7" },
+                { name: "ALMOND OLD FASHIONED", description: "Bourbon Whiskey, Disaronno Amaretto, Hazelnut Syrup, Angostura Bitters", price: "8" },
+                { name: "CUPID", description: "Vodka, Strawberry Bols Liqueur, Lemon Juice, Strawberry Syrup", price: "6" },
+                { name: "IL FIORE", description: "Melon Bols Liqueur, Gin, Lemon Juice, Green Apple Syrup", price: "8" },
+                { name: "APEROL SPRITZ", description: "Aperol, Prosecco, Mineral Water", price: "7" },
+            ],
+        },
+        {
+            title: "SOFT DRINKS",
+            items: [
+                { name: "RED BULL", description: "Energy Drink", price: "3.5" },
+                { name: "POMEGRANATE JUICE", description: "", price: "2" },
+                { name: "ORANGE JUICE", description: "", price: "2" },
+                { name: "WILD BERRY JUICE", description: "", price: "2" },
+            ],
+        },
         {
             title: "BRANDY & COGNAC",
             items: [
@@ -133,27 +154,6 @@ export const italianMenuItems: MenuItemsData = {
             ],
         },
         {
-            title: "COCKTAILS",
-            items: [
-                { name: "NEGRONI", description: "Gin, Campari, Sweet Vermouth", price: "8" },
-                { name: "ROSSINI", description: "Prosecco, Strawberry Liqueur", price: "6" },
-                { name: "LIMONCELLO SPRITZ", description: "Limoncello Luxardo, Prosecco", price: "7" },
-                { name: "ALMOND OLD FASHIONED", description: "Bourbon Whiskey, Disaronno Amaretto, Hazelnut Syrup, Angostura Bitters", price: "8" },
-                { name: "CUPID", description: "Vodka, Strawberry Bols Liqueur, Lemon Juice, Strawberry Syrup", price: "6" },
-                { name: "IL FIORE", description: "Melon Bols Liqueur, Gin, Lemon Juice, Green Apple Syrup", price: "7" },
-                { name: "APEROL SPRITZ", description: "Aperol, Prosecco, Mineral Water", price: "7" },
-            ],
-        },
-        {
-            title: "SOFT DRINKS",
-            items: [
-                { name: "RED BULL", description: "Energy Drink", price: "3" },
-                { name: "POMEGRANATE JUICE", description: "", price: "2" },
-                { name: "ORANGE JUICE", description: "", price: "2" },
-                { name: "WILD BERRY JUICE", description: "", price: "2" },
-            ],
-        },
-        {
             title: "BEER",
             items: [
                 { name: "PEJA", description: "", price: "3" },
@@ -165,23 +165,23 @@ export const italianMenuItems: MenuItemsData = {
         {
             title: "VODKA",
             items: [
-                { name: "AU VODKA", description: "", price: "8" },
-                { name: "GREY GOOSE", description: "", price: "8" },
-                { name: "KETEL ONE", description: "", price: "8" },
-                { name: "BELVEDERE", description: "", price: "8" },
-                { name: "BELUGA", description: "", price: "8" },
+                { name: "AU VODKA", description: "", price: "9" },
+                { name: "GREY GOOSE", description: "", price: "9" },
+                { name: "KETEL ONE", description: "", price: "9" },
+                { name: "BELVEDERE", description: "", price: "9" },
+                { name: "BELUGA", description: "", price: "9" },
                 { name: "BELUGA GOLD LINE", description: "", price: "35" },
             ],
         },
         {
             title: "GIN",
             items: [
-                { name: "ALKKEMIST", description: "", price: "7" },
+                { name: "ALKKEMIST", description: "", price: "8" },
                 { name: "TANQUERAY", description: "", price: "7" },
-                { name: "MALFY", description: "", price: "7" },
-                { name: "BOMBAY SAPPHIRE", description: "", price: "7" },
+                { name: "MALFY", description: "", price: "8" },
+                { name: "BOMBAY SAPPHIRE", description: "", price: "8" },
                 { name: "TANQUERAY TEN", description: "", price: "8" },
-                { name: "HENDRICK'S", description: "", price: "8" },
+                { name: "HENDRICK'S", description: "", price: "9" },
                 { name: "GIN MARE", description: "", price: "10" },
                 { name: "MONKEY 47", description: "", price: "15" },
                 { name: "PORTOFINO", description: "", price: "16" },
@@ -206,12 +206,12 @@ export const italianMenuItems: MenuItemsData = {
             items: [
                 { name: "TOPANITA MEZCAL", description: "", price: "6" },
                 { name: "MEZCAL PERO DE SAN JUAN ESPADÍN BLACK LABEL", description: "", price: "8" },
-                { name: "DON JULIO BLANCO", description: "", price: "10" },
+                { name: "DON JULIO BLANCO", description: "", price: "8" },
                 { name: "VOLCANO BLANCO", description: "", price: "10" },
                 { name: "MEZCAL PERO DE SAN JUAN ESPADÍN RED LABEL", description: "", price: "11" },
                 { name: "MEZCAL PERO DE SAN JUAN ESPADÍN GREEN LABEL", description: "", price: "12" }, 
-                { name: "DON JULIO REPOSADO", description: "", price: "12" },
-                { name: "DON JULIO ANEJO", description: "", price: "15" },
+                { name: "DON JULIO REPOSADO", description: "", price: "10" },
+                { name: "DON JULIO ANEJO", description: "", price: "12" },
                 { name: "DON JULIO 1942", description: "", price: "45" },
                 { name: "VOLCANO XO", description: "", price: "45" },
             ],
@@ -241,11 +241,11 @@ export const italianMenuItems: MenuItemsData = {
         {
             title: "CHAMPAGNE & SPARKLING WINE",
             items: [
-                { name: "VS ROSATO BRUT FRESCO", description: "France, Champagne", price: "125ml: 5 / 750ml: 30" },
-                { name: "VS BIANCO BRUT BLANC DE BLANC", description: "Italy, Veneto", price: "125ml: 5 / 750ml: 30" },
-                { name: "VS PROSECCO DOC TREVISO BRUT", description: "Italy, Veneto", price: "750ml: 35" },
-                { name: "VS VALDOBBIADENE PROSECCO SUPERIORE", description: "Veneto, Italy", price: "750ml: 40" },
-                { name: "VS VINOSPUMANTE ASOLO DOC PROSECCO", description: "Veneto, Italy", price: "750ml: 40" },
+                { name: "VILLA SANDI ROSATO BRUT FRESCO", description: "Italy, Veneto", price: "125ml: 5 / 750ml: 30" },
+                { name: "VILLA SANDI BIANCO BRUT BLANC DE BLANC", description: "Italy, Veneto", price: "125ml: 5 / 750ml: 30" },
+                { name: "VILLA SANDI PROSECCO DOC TREVISO BRUT", description: "Italy, Veneto", price: "750ml: 35" },
+                { name: "VILLA SANDI VALDOBBIADENE PROSECCO SUPERIORE", description: "Veneto, Italy", price: "750ml: 40" },
+                { name: "VILLA SANDI VINOSPUMANTE ASOLO DOC PROSECCO", description: "Veneto, Italy", price: "750ml: 40" },
                 { name: "MOET AND CHANDON BRUT IMPERIAL, NV", description: "France, Champagne", price: "750ml: 140" },
                 { name: "LAURENT PERRIER LA CUVÉE, NV", description: "France, Champagne", price: "750ml: 160" },
                 { name: "VEUVE CLICQUOT BRUT, NV", description: "France, Reims", price: "750ml: 180" },
@@ -312,7 +312,7 @@ export const italianMenuItems: MenuItemsData = {
         {
             title: "RED WINE",
             items: [
-                { name: "TARANI MALBEC, 2023", description: "France, Comte Tolosan", price: "125ml: 5 / 750ml: 24" },
+                { name: "TARANI MALBEC, 2023", description: "France, Comte Tolosan", price: "125ml: 5.5 / 750ml: 24" },
                 { name: "LUCARELLI PRIMITIVO", description: "Italy, Puglia", price: "125ml: 5.5 / 750ml: 27" },
                 { name: "CAHORS, 2022", description: "Malbec - France, Southwest France", price: "125ml: 6 / 750ml: 32" },
                 { name: "IMURI - PRIMITIVO VIGNETI DEL SALENTO, 2024", description: "Italy, Salento Puglia", price: "750ml: 36" },
