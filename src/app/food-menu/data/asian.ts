@@ -36,11 +36,13 @@ export const asianMenuItems: MenuItemsData = {
             title: "Maki",
             items: [
                 { name: "Prawn avocado and cucumber", description: "rock shrimp tempura", price: "13.5" },
-                { name: "Harumaki of Salmon & shisho and avocado", description: "yuzu ikura, sansho tare & masago tobiko", price: "14.5" },
+                { name: "Salmon and avocado", description: "yuzu ikura, sansho tare & masago tobiko", price: "14.5" },
                 { name: "Spicy Tuna & avocado", description: "compressed cucumber, wasabi tobiko & yuzu", price: "14.75" },
+                { name: "Prawn tempura", description: "deep fried prawn, avocado, mayonaisse", price: "14" },
                 { name: "Asparagus & tofu", description: "tofu, tomato and rice miso", price: "11" },
                 { name: "Kabayaki of Beef", description: "beer mustard pickles, crispy shallots, nori tobiko & truffle", price: "14" },
                 { name: "California Royale", description: "snow crab, cucumber, avocado, masago tobiko, lobster mayonnaise", price: "13" },
+                { name: "Spicy Tuna Hosomaki", description: "", price: "13" },
             ],
         },
         {
