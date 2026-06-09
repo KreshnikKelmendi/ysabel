@@ -14,37 +14,19 @@ export const asianMenuItems: MenuItemsData = {
             items: [
                 { name: "Miso Soup", description: "tofu with Japanese root vegetables and wakame", price: "6" },
                 { name: "Black angus beef tataki", description: "beer mustard pickles & truffle brown butter ponzu", price: "15.5" },
+                { name: "Tuna and truffle tataki", description: "marinated tuna, cucumber, daikon, truffle sauce", price: "18" },
                 { name: "Chilled Japanese spinach & daikon salad", description: "roasted goma dressing", price: "9" },
                 { name: "Chicken Yakitori", description: "yuzu togoroshi, sakura smoked tare", price: "7" },
                 { name: "Prawn & asparagus Kushiyaki", description: "chilli yuzu butter ponzu", price: "10" },
+                { name: "Seabass carpacio", description: "thinly sliced seabass, micro greens, cucumber, red papper, black pepper", price: "17" },
+                { name: "Salmon sashimi Ysabel Style", description: "thinly sliced salmon, ginger, micro greens sesame seeds, sriracha", price: "21" },
                 { name: "Japanese Salad", description: "matcha apple, hot tensu flake, wasabi avocado dressing", price: "8.5" },
                 { name: "Beef kushiyaki", description: "crispy onions, teriyaki, wasabi furikake", price: "9" },
                 { name: "Beef ginger gyoza", description: "tomato miso and ponzu", price: "13" },
                 { name: "Prawn gyoza", description: "tomato miso & chilli ponzu", price: "12" },
-                { name: "Salmon Tataki", description: "Creme bisque tobiko", price: "16.5" },
+            ],
+        },
 
-            ],
-        },
-        {
-            title: "Sashimi / Platters",
-            items: [
-                { name: "Omakase 3 kind Sashimi", description: "sashimni soya 12 pieces", price: "22" },
-                { name: "Omakase 3 kind nigiri selection", description: "sashimni soya 6 pieces", price: "16.5" },
-            ],
-        },
-        {
-            title: "Maki",
-            items: [
-                { name: "Prawn avocado and cucumber", description: "rock shrimp tempura", price: "13.5" },
-                { name: "Salmon and avocado", description: "yuzu ikura, sansho tare & masago tobiko", price: "14.5" },
-                { name: "Spicy Tuna & avocado", description: "compressed cucumber, wasabi tobiko & yuzu", price: "14.75" },
-                { name: "Prawn tempura", description: "deep fried prawn, avocado, mayonaisse", price: "14" },
-                { name: "Asparagus & tofu", description: "tofu, tomato and rice miso", price: "11" },
-                { name: "Kabayaki of Beef", description: "beer mustard pickles, crispy shallots, nori tobiko & truffle", price: "14" },
-                { name: "California Royale", description: "snow crab, cucumber, avocado, masago tobiko, lobster mayonnaise", price: "13" },
-                { name: "Spicy Tuna Hosomaki", description: "", price: "13" },
-            ],
-        },
         {
             title: "Tempura",
             items: [
@@ -52,6 +34,34 @@ export const asianMenuItems: MenuItemsData = {
                 { name: "Rock shrimp tempura", description: "kimchi sauce, seaweed furikake", price: "12.75" },
                 { name: "Omakase vegetable tempura", description: "green tea salt, Tensu broth", price: "9" },
                 { name: "Prawn tempura", description: "diakon oroshi, tensu broth", price: "13.75" },
+            ],
+        },
+
+        {
+            title: "Sashimi / Nigiri",
+            items: [
+                { name: "Omakase 3 kind Sashimi", description: "sashimni soya 12 pieces", price: "22" },
+                { name: "Omakase 3 kind nigiri selection", description: "sashimni soya 6 pieces", price: "16.5" },
+                { name: "Omakase 5 kind nigiri selection", description: "", price: "27" },
+                { name: "Aburi 3 kind nigiri selection", description: "", price: "21" },
+                { name: "SASHIMI / NIGIRI PLATTER", description: "", price: "120" },
+            ],
+        },
+        {
+            title: "Maki",
+            items: [
+                { name: "Prawn tempura", description: "deep fried prawn, avocado, mayonaisse", price: "12" },
+                { name: "Spicy Tuna", description: "tuna, spring onion, cucumber, spicy mayo", price: "10" },
+                { name: "Dragon", description: "crab stick, eel, asparagus", price: "22" },
+                { name: "Vegetarian", description: "avocado, cucumber, asparagus, sesame seed", price: "10" },
+                { name: "Hosomaki Tuna", description: "tuna, pickled ginger, sushi nori", price: "8" },
+                { name: "Hosomaki Eel", description: "barbequed eel, sushi nori, pickled ginger", price: "12" },
+                { name: "California Royale", description: "snow crab, cucumber, avocado, masago tobiko, lobster mayonnaise", price: "11" },
+                { name: "Crunchy", description: "deep fried king prawn, crab stick, asparagus", price: "19" },
+                { name: "Salmon avocado", description: "salmon, avocado", price: "13" },
+                { name: "Hosomaki Avocado", description: "avocado, pickled ginger, sushi nori", price: "8" },
+                { name: "Hosomaki Salmon", description: "salmon, pickled ginger, sushi nori", price: "8" },
+                { name: "Hosomaki Cucumber", description: "cucumber, pickled ginger, sushi nori", price: "8" },
             ],
         },
         {
